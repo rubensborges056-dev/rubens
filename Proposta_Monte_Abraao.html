@@ -1,0 +1,495 @@
+<title>Proposta Monte Abraão</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a builder's proposal dossier — navy cover band, sticky section index, then numbered chapters like a bill of quantities */
+:root{
+  --bg:#F5F7FB; --surface:#FFFFFF; --ink:#0B1F3A; --text:#2A3548; --muted:#5E6B80; --line:#DCE2EC; --soft:#EEF2F8;
+  --accent:#1F4FD1; --accent-ink:#FFFFFF; --navy:#0B1F3A; --on-navy:#FFFFFF; --on-navy-muted:#B7C6EA;
+  --demo:#D62828; --demo-bg:#FFE3E3; --new:#1F9A47;
+  --r-def:#EEF1F6; --r-sala:#E3EBFD; --r-coz:#FFF1D6; --r-wc:#DDF2F5; --wall:#1C2533;
+  --stage:#E6EBF3;
+  --font-d:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A1220; --surface:#111C2E; --ink:#EAF0FA; --text:#C9D3E3; --muted:#8E9CB3; --line:#24324A; --soft:#16233A;
+  --accent:#7398FF; --accent-ink:#0A1220; --navy:#07101E; --on-navy:#FFFFFF; --on-navy-muted:#9FB2DA;
+  --demo:#FF6161; --demo-bg:#3A1A1F; --new:#3FCB6B;
+  --r-def:#1A2840; --r-sala:#1B2C52; --r-coz:#3A3020; --r-wc:#16363B; --wall:#C9D3E3;
+  --stage:#0E1828; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1220; --surface:#111C2E; --ink:#EAF0FA; --text:#C9D3E3; --muted:#8E9CB3; --line:#24324A; --soft:#16233A;
+  --accent:#7398FF; --accent-ink:#0A1220; --navy:#07101E; --on-navy:#FFFFFF; --on-navy-muted:#9FB2DA;
+  --demo:#FF6161; --demo-bg:#3A1A1F; --new:#3FCB6B;
+  --r-def:#1A2840; --r-sala:#1B2C52; --r-coz:#3A3020; --r-wc:#16363B; --wall:#C9D3E3;
+  --stage:#0E1828; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text);font:400 15px/1.6 var(--font-d)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.mono,.code,.art{font-family:var(--font-m)}
+.eyebrow{font:500 11px/1 var(--font-m);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.c{text-align:center}
+.b{font-weight:700;color:var(--ink)}
+
+/* cover */
+.cover{background:var(--navy);color:var(--on-navy)}
+.cover .wrap{padding-block:40px 36px;display:grid;gap:28px}
+.brand{display:flex;align-items:center;gap:14px;font:700 13px var(--font-d);letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-muted)}
+.brand img{width:64px;height:auto}
+.cover h1{color:var(--on-navy);font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-.02em}
+.cover .lead{font-size:clamp(16px,2.2vw,19px);color:var(--on-navy-muted);margin-top:10px;max-width:60ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.meta div{background:var(--navy);padding:14px 16px;display:grid;gap:4px}
+.meta span{font:500 10px/1 var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted)}
+.meta strong{font-size:17px;color:var(--on-navy)}
+.meta .big strong{font-size:24px}
+.cover-strip{height:6px;background:var(--accent)}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:10px}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;text-decoration:none;color:var(--muted);font:600 13px var(--font-d);padding:7px 12px;border-radius:999px;white-space:nowrap}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--soft);color:var(--ink);outline:none}
+nav.toc a .k{font-family:var(--font-m);color:var(--accent);margin-right:6px;font-size:11px}
+
+/* sections */
+main section.block{padding-block:56px 8px}
+.shead{display:grid;gap:8px;margin-bottom:24px}
+.shead h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;letter-spacing:-.01em}
+.shead p{color:var(--muted);max-width:68ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+
+/* 3D */
+.viewer{position:relative;height:min(72vh,620px);min-height:420px;border-radius:14px;overflow:hidden;background:var(--stage);border:1px solid var(--line)}
+.viewer canvas{display:block;width:100%;height:100%;touch-action:none}
+.vctl{position:absolute;top:12px;left:12px;right:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;pointer-events:none}
+.vctl > *{pointer-events:auto}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.seg button{font:600 13px var(--font-d);border:0;border-radius:7px;padding:8px 12px;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.vleg{position:absolute;left:12px;bottom:12px;display:flex;flex-wrap:wrap;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--text)}
+.vleg span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:16px;height:10px;border-radius:2px;display:inline-block}
+.vhint{position:absolute;right:12px;bottom:12px;font:500 11px var(--font-m);color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:8px}
+@media (max-width:640px){.vhint{display:none}.seg button{padding:7px 9px;font-size:12px}}
+
+/* planta */
+.plan{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px}
+@media (max-width:820px){.plan{grid-template-columns:1fr}}
+.plan .card{padding:16px}
+.plan svg{width:100%;height:auto;display:block}
+.plan .wall{fill:var(--wall)}
+.plan .demo{fill:var(--demo-bg);stroke:var(--demo);stroke-width:.05;stroke-dasharray:.12 .07}
+.plan .new{fill:var(--new)}
+.plan .door{stroke:var(--muted);stroke-width:.03}
+.plan .rn{font:800 .3px var(--font-d);fill:var(--ink);text-anchor:middle}
+.plan .ra{font:500 .25px var(--font-m);fill:var(--accent);text-anchor:middle}
+.plan .rn.sm{font-size:.18px}.plan .ra.sm{font-size:.15px}
+.alist{display:grid}
+.alist div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.alist div span:last-child{font-family:var(--font-m);color:var(--muted);font-variant-numeric:tabular-nums}
+.alist .tot{border:0;font-weight:800;color:var(--ink)}
+.alist .tot span:last-child{color:var(--ink)}
+.legend{display:grid;gap:8px;margin-top:18px;font-size:13px}
+.legend span{display:flex;align-items:center;gap:10px}
+.note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+
+/* orçamento */
+.cap{margin-bottom:22px}
+.cap header{display:flex;align-items:baseline;gap:14px;padding:14px 18px;background:var(--soft);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;flex-wrap:wrap}
+.cap header .code{font-size:12px;color:var(--accent);font-weight:500}
+.cap header h3{font-size:17px;font-weight:800;flex:1 1 220px}
+.cap header .ct{font:700 15px var(--font-m);color:var(--ink);font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:0 0 14px 14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%}
+.items{min-width:680px}
+.items th{font:500 10px/1 var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+.items th.n{text-align:right}.items th.c{text-align:center}
+.items td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
+.items td strong{color:var(--ink);font-weight:700}
+.items td p{color:var(--muted);font-size:13px;margin-top:4px;max-width:62ch;line-height:1.55}
+.items td.art{color:var(--accent);font-size:13px;width:56px}
+.items tfoot td{border:0;font-weight:700;color:var(--ink);text-align:right;padding:12px 14px}
+.items tfoot td:last-child{font-family:var(--font-m)}
+.totals{margin-left:auto;max-width:420px;display:grid;margin-top:8px}
+.totals div{display:flex;justify-content:space-between;padding:10px 18px;font-size:15px}
+.totals div span:last-child{font-family:var(--font-m);font-variant-numeric:tabular-nums}
+.totals .grand{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:16px 18px;margin-top:6px}
+.totals .grand span:first-child{font-weight:800;letter-spacing:.04em}
+.totals .grand span:last-child{font-size:22px;font-weight:700;color:var(--on-navy)}
+
+/* resumo */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.two .card{padding:20px}
+.card h3{font-size:16px;font-weight:800;margin-bottom:14px}
+.bar{display:grid;grid-template-columns:60px minmax(0,1fr) auto;grid-template-areas:"c n v" "t t p";gap:6px 10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}
+.bar .code{grid-area:c;font-size:11px;color:var(--accent)}
+.bar .bn{grid-area:n;font-size:14px;color:var(--ink)}
+.bar .v{grid-area:v;font:600 14px var(--font-m);color:var(--ink);font-variant-numeric:tabular-nums}
+.bar .track{grid-area:t;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
+.bar .track i{display:block;height:100%;background:var(--accent);border-radius:4px}
+.bar .pct{grid-area:p;font:500 12px var(--font-m);color:var(--muted)}
+.paytab{min-width:460px}
+.paytab th{font:500 10px/1 var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+.paytab th.n{text-align:right}
+.paytab td{padding:12px 8px;border-bottom:1px solid var(--line);font-size:14px}
+.paytab td.art{color:var(--accent)}
+.bank{display:grid;gap:10px;margin-top:18px;padding:16px;background:var(--soft);border-radius:10px}
+.bank div{display:grid;gap:2px}
+.bank span{font:500 10px var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bank strong{color:var(--ink);font-family:var(--font-m);font-weight:500;word-break:break-word}
+.bullets{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:13px;color:var(--muted)}
+.bullets li{padding-left:16px;position:relative}
+.bullets li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* gantt */
+.gantt{overflow-x:auto}
+.gin{min-width:820px;padding:8px 18px 18px}
+.g-head,.g-row{display:grid;grid-template-columns:72px 300px 56px minmax(0,1fr);gap:10px;align-items:center}
+.g-head{font:500 10px var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line)}
+.g-weeks{display:grid;grid-template-columns:repeat(5,1fr)}
+.g-weeks span{border-left:1px solid var(--line);padding-left:6px}
+.g-row{padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
+.g-art{font:500 12px var(--font-m);color:var(--accent)}
+.g-name{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.g-d{font:500 11px var(--font-m);color:var(--muted)}
+.g-track{position:relative;height:18px;background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/20% 100%}
+.g-track i{position:absolute;top:3px;bottom:3px;background:var(--accent);border-radius:4px}
+.g-track b{position:absolute;top:2px;width:14px;height:14px;background:var(--ink);transform:rotate(45deg)}
+.g-row.ms .g-name{font-weight:700;font-style:italic}
+.g-ph{padding:12px 0 6px;font-weight:800;color:var(--ink);font-size:13px;display:flex;gap:10px;border-bottom:1px solid var(--line)}
+.g-ph .code{color:var(--accent);font-size:11px;font-weight:500}
+.gsum{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:16px;align-items:baseline}
+.gsum strong{font-size:26px;color:var(--ink)}
+
+/* caderno */
+.terms{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.terms li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.terms .art{color:var(--accent);font-size:13px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:14px 18px;display:flex;gap:12px;align-items:baseline;font-weight:800;color:var(--ink);flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font:500 18px var(--font-m);color:var(--accent)}
+details[open] summary::after{content:"–"}
+summary .code{font-size:12px;color:var(--accent);font-weight:500}
+summary .cnt{font:500 11px var(--font-m);color:var(--muted)}
+.spec{list-style:none;margin:0;padding:0 18px 8px}
+.spec li{display:grid;grid-template-columns:44px minmax(0,1fr) 36px;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.spec strong{color:var(--ink);font-size:14px}
+.spec p{font-size:13px;color:var(--muted);margin-top:4px}
+.spec .art{color:var(--accent);font-size:13px}
+.spec .un{font:500 12px var(--font-m);color:var(--muted);text-align:right}
+.objeto{padding:20px;font-size:15px}
+
+/* aceitação */
+.accept{padding:24px;display:grid;gap:18px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{padding-left:28px;position:relative;font-size:14px}
+.checks li::before{content:"✓";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
+.callout{background:var(--soft);border-radius:10px;padding:14px 16px;font-weight:700;color:var(--ink);text-align:center}
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px}
+.sign div{border:1px dashed var(--line);border-radius:12px;padding:18px;display:grid;gap:6px;min-height:150px;align-content:end}
+.sign .who{font:500 10px var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.sign .line{border-bottom:1px solid var(--ink);height:56px}
+.sign strong{color:var(--ink)}
+.sign small{color:var(--muted)}
+
+footer{margin-top:64px;background:var(--navy);color:var(--on-navy-muted)}
+footer .wrap{padding-block:32px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer strong{color:var(--on-navy);display:block;margin-bottom:4px}
+footer span{font-size:13px;display:block;word-break:break-word}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brand"><img src="data:image/png;base64,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" alt="Logótipo Parâmetro Imaginário"><span>Parâmetro Imaginário Unipessoal Lda</span></div>
+    <div>
+      <div class="eyebrow" style="color:var(--on-navy-muted)">Proposta n.º PI-2026-001 · 04.11.2026</div>
+      <h1>Proposta de Orçamento</h1>
+      <p class="lead">Remodelação de apartamento em Monte Abraão, Sintra, preparada para a Sra. Cátia Silva e o Sr. Luís Guerreiro.</p>
+    </div>
+    <div class="meta">
+      <div class="big"><span>Investimento total</span><strong>19 138,30 €</strong></div>
+      <div><span>Valor dos trabalhos</span><strong>18 055,00 € + IVA 6%</strong></div>
+      <div><span>Prazo previsto</span><strong>25 dias úteis · ≈ 5 semanas</strong></div>
+      <div><span>Área útil</span><strong>74,01 m²</strong></div>
+      <div><span>Validade</span><strong>30 dias</strong></div>
+    </div>
+  </div>
+  <div class="cover-strip"></div>
+</header>
+
+<nav class="toc" aria-label="Secções da proposta">
+  <div class="wrap">
+    <a href="#modelo"><span class="k">01</span>Modelo 3D</a>
+    <a href="#planta"><span class="k">02</span>Planta</a>
+    <a href="#orcamento"><span class="k">03</span>Orçamento</a>
+    <a href="#resumo"><span class="k">04</span>Resumo e pagamento</a>
+    <a href="#cronograma"><span class="k">05</span>Cronograma</a>
+    <a href="#caderno"><span class="k">06</span>Caderno de encargos</a>
+    <a href="#aceitacao"><span class="k">07</span>Aceitação</a>
+  </div>
+</nav>
+
+<main>
+<section class="block" id="modelo"><div class="wrap">
+  <div class="shead"><span class="eyebrow">01 · Modelo 3D</span><h2>O apartamento antes e depois da obra</h2>
+  <p>Rode o modelo para ver cada divisão. Em «Depois da obra» aparece o novo pavimento vinílico, a parede do hall com a sala a demolir (vermelho) e a nova parede junto ao quarto (verde).</p></div>
+  <div class="viewer" id="viewer">
+    <div class="vctl">
+      <div class="seg" role="group" aria-label="Estado da obra"><button id="bAntes" aria-pressed="false">Antes</button><button id="bDepois" aria-pressed="true">Depois da obra</button></div>
+      <div class="seg" role="group" aria-label="Vista"><button id="v3d" aria-pressed="true">Perspetiva</button><button id="vTop" aria-pressed="false">Planta</button><button id="vLow" aria-pressed="false">Paredes baixas</button></div>
+    </div>
+    <div class="vleg"><span><i class="sw" style="background:#E9ECF2;border:1px solid #9AA6B8"></i>Existente</span><span><i class="sw" style="background:var(--demo)"></i>A demolir</span><span><i class="sw" style="background:var(--new)"></i>A construir</span></div>
+    <div class="vhint">Arrastar para rodar · scroll para zoom</div>
+  </div>
+</div></section>
+
+<section class="block" id="planta"><div class="wrap">
+  <div class="shead"><span class="eyebrow">02 · Planta de alterações</span><h2>Paredes a demolir e a construir</h2>
+  <p>Desenho esquemático redesenhado a partir da planta de imobiliária, com o quadro de áreas de cada divisão.</p></div>
+  <div class="plan">
+    <div class="card"><svg viewBox="-7.49 -5.07 12.66 11.28" role="img" aria-label="Planta de alterações do apartamento"><path d="M-6.020,-3.219 L-5.044,-2.922 L-4.599,-4.481 L-3.082,-4.035 L-4.037,-0.483 L-5.129,-0.801 L-5.415,-0.006 L-5.977,0.312 L-7.006,0.026Z" style="fill:var(--r-coz)"/><path d="M-0.505,-4.619 L4.712,-4.619 L4.680,-1.808 L-0.399,-1.755 L-0.505,0.450 L-3.984,-0.441 L-2.945,-3.982 L-0.824,-3.410Z" style="fill:var(--r-sala)"/><path d="M-5.097,-0.716 L-1.725,0.185 L-1.767,1.532 L-5.384,0.758 L-5.320,0.153Z" style="fill:var(--r-def)"/><path d="M-1.725,0.185 L-0.569,0.535 L-0.675,2.571 L-1.937,2.401 L-1.767,1.532Z" style="fill:var(--r-def)"/><path d="M-1.863,2.539 L-0.696,2.804 L0.576,3.176 L0.629,5.562 L-2.340,4.734Z" style="fill:var(--r-wc)"/><path d="M-0.378,-1.671 L3.100,-1.628 L3.100,-1.331 L4.680,-1.310 L4.447,1.935 L-0.569,1.691 L-0.548,0.556 L-0.399,0.524Z" style="fill:var(--r-def)"/><path d="M-0.569,1.850 L4.447,2.147 L4.203,5.752 L0.735,5.562 L0.661,3.144 L-0.590,2.698Z" style="fill:var(--r-def)"/><path class="wall" d="M-5.146,-3.110 L-4.702,-4.667 L-2.899,-4.138 L-2.903,-4.126 L-0.930,-3.594 L-0.621,-4.769 L4.864,-4.769 L4.828,-1.660 L3.250,-1.644 L3.250,-1.479 L4.841,-1.458 L4.592,2.005 L4.607,2.006 L4.343,5.910 L0.783,5.714 L0.784,5.760 L-2.517,4.841 L-2.017,2.542 L-2.115,2.529 L-1.943,1.648 L-4.443,1.113 L-4.390,0.914 L-1.703,1.489 L-1.872,2.355 L-1.518,2.402 L-1.583,2.659 L-1.821,2.605 L-2.275,4.695 L0.573,5.489 L0.522,3.217 L-0.710,2.858 L-0.815,2.834 L-0.748,2.565 L-0.828,2.545 L-0.532,2.554 L-0.534,2.660 L0.715,3.105 L0.789,5.509 L4.152,5.695 L4.388,2.199 L-0.410,1.915 L-0.408,1.835 L-0.691,1.827 L-0.680,1.615 L-0.513,1.620 L-0.513,1.639 L4.396,1.877 L4.621,-1.256 L3.045,-1.277 L3.045,-1.574 L-0.324,-1.615 L-0.345,0.569 L-0.494,0.601 L-0.497,0.792 L-0.637,0.789 L-0.626,0.575 L-0.772,0.531 L-0.570,0.585 L-0.550,0.511 L-0.550,0.511 L-0.420,0.514 L-0.418,0.514 L-0.416,0.514 L-0.414,0.513 L-0.412,0.512 L-0.410,0.512 L-0.408,0.511 L-0.407,0.510 L-0.405,0.508 L-0.404,0.507 L-0.403,0.505 L-0.402,0.504 L-0.401,0.502 L-0.400,0.500 L-0.400,0.498 L-0.399,0.496 L-0.399,0.494 L-0.357,-1.796 L-0.357,-1.798 L-0.357,-1.800 L-0.358,-1.802 L-0.358,-1.804 L-0.359,-1.806 L-0.360,-1.807 L-0.361,-1.809 L-0.362,-1.811 L-0.363,-1.811 L4.626,-1.863 L4.656,-4.564 L-0.463,-4.564 L-0.785,-3.342 L-2.907,-3.915 L-3.915,-0.480 L-2.749,-0.181 L-2.786,-0.041 L-4.141,-0.404 L-4.099,-0.558 L-4.075,-0.551 L-3.149,-3.998 L-4.561,-4.412 L-5.007,-2.853 L-5.983,-3.150 L-6.937,-0.012 L-5.985,0.253 L-5.460,-0.044 L-5.163,-0.868 L-4.796,-0.761 L-4.842,-0.591 L-5.058,-0.649 L-5.266,0.163 L-5.324,0.714 L-5.163,0.749 L-5.216,0.947 L-5.547,0.876 L-5.476,0.201 L-5.958,0.474 L-7.194,0.129 L-6.120,-3.406ZM-1.627,0.125 L-1.622,0.107 L-0.567,0.378 L-0.568,0.410ZM-1.259,2.437 L-0.877,2.488 L-0.879,2.532ZM-2.224,0.109 L-2.224,0.109 L-2.202,0.026Z" fill-rule="evenodd"/><path class="demo" d="M-0.526,0.421 L-0.570,0.585 L-1.715,0.278 L-1.671,0.114Z"/><path class="new" d="M-0.419,0.494 L-0.549,0.491 L-0.507,-1.799 L-0.377,-1.797Z"/><line class="door" x1="-4.811" y1="-0.706" x2="-4.62" y2="-1.406"/><line class="door" x1="-2.764" y1="-0.122" x2="-2.616" y2="-0.684"/><line class="door" x1="-2.202" y1="0.026" x2="-2.054" y2="-0.536"/><line class="door" x1="-5.171" y1="0.779" x2="-4.97" y2="0.015"/><line class="door" x1="-0.601" y1="0.79" x2="0.226" y2="0.811"/><line class="door" x1="-0.633" y1="1.829" x2="0.088" y2="1.85"/><line class="door" x1="-1.566" y1="2.592" x2="-1.757" y2="3.356"/><text x="-4.993" y="-2.0" class="rn">Cozinha</text><text x="-4.993" y="-1.58" class="ra">9,01 m²</text><text x="0.309" y="-2.563" class="rn">Sala de estar</text><text x="0.309" y="-2.1430000000000002" class="ra">26,20 m²</text><text x="-3.545" y="0.435" class="rn">Hall</text><text x="-3.545" y="0.855" class="ra">4,82 m²</text><text x="-1.215" y="1.187" class="rn sm">Circ.</text><text x="-1.215" y="1.487" class="ra sm">1,82 m²</text><text x="-0.748" y="4.033" class="rn">Banho</text><text x="-0.748" y="4.453" class="ra">4,79 m²</text><text x="2.035" y="0.131" class="rn">Quarto 1</text><text x="2.035" y="0.5509999999999999" class="ra">15,16 m²</text><text x="2.289" y="3.694" class="rn">Quarto 2</text><text x="2.289" y="4.114" class="ra">12,21 m²</text></svg></div>
+    <div class="card">
+      <h3 style="font-size:16px;font-weight:800;margin-bottom:8px">Quadro de áreas</h3>
+      <div class="alist"><div><span>Sala de estar</span><span>26,20 m²</span></div><div><span>Quarto 1</span><span>15,16 m²</span></div><div><span>Quarto 2</span><span>12,21 m²</span></div><div><span>Cozinha</span><span>9,01 m²</span></div><div><span>Hall</span><span>4,82 m²</span></div><div><span>Banho</span><span>4,79 m²</span></div><div><span>Circulação</span><span>1,82 m²</span></div><div class="tot"><span>Área útil total</span><span>74,01 m²</span></div></div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--wall)"></i>Parede existente a manter</span>
+        <span><i class="sw" style="background:var(--demo-bg);outline:2px dashed var(--demo);outline-offset:-2px"></i>Parede a demolir (art. 1.4)</span>
+        <span><i class="sw" style="background:var(--new)"></i>Parede a construir</span>
+      </div>
+      <p class="note">Medidas a confirmar em obra. A planta original não está à escala exata.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="orcamento"><div class="wrap">
+  <div class="shead"><span class="eyebrow">03 · Orçamento detalhado</span><h2>18 artigos em 5 capítulos</h2>
+  <p>Descrição completa de cada trabalho, com unidade, quantidade, preço unitário e total. Valores em euros, sem IVA.</p></div>
+  <section class="cap" id="cap01"><header><span class="code">Cap. 01</span><h3>Demolições, Remoções e Transporte de Resíduos</h3><span class="ct">4 290,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr><td class="art">1.1</td><td><strong>Demolição e Remoção do Móvel da Cozinha</strong><p>Execução da demolição e remoção do móvel existente na cozinha, incluindo recolha, carga, transporte e descarga dos resíduos em contentor ou vazadouro devidamente autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">610,00 €</td><td class="n b">610,00 €</td></tr><tr><td class="art">1.2</td><td><strong>Remoção de Revestimento Cerâmico nas Paredes da Cozinha</strong><p>Execução da remoção dos azulejos existentes nas paredes da cozinha, incluindo recolha, carga e transporte dos resíduos para contentor devidamente autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">481,00 €</td><td class="n b">481,00 €</td></tr><tr><td class="art">1.3</td><td><strong>Demolição de Paredes em Tijolo na Despensa da Cozinha</strong><p>Execução da demolição das paredes em tijolo existentes na despensa da cozinha, incluindo remoção, recolha, carga e transporte dos resíduos para contentor ou vazadouro autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">284,00 €</td><td class="n b">284,00 €</td></tr><tr><td class="art">1.4</td><td><strong>Demolição da Parede entre o Hall e a Sala</strong><p>Execução da demolição da parede existente entre o hall e a sala, incluindo remoção dos materiais, recolha, carga e transporte dos resíduos para contentor ou vazadouro autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">682,00 €</td><td class="n b">682,00 €</td></tr><tr><td class="art">1.5</td><td><strong>Demolição e Remoção de Elementos da Casa de Banho</strong><p>Execução da remoção dos azulejos existentes nas paredes e pavimento da casa de banho, incluindo remoção de banheira, bidé, sanita e lavatório, bem como recolha, carga e transporte dos resíduos para contentor ou vazadouro autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">1 020,00 €</td><td class="n b">1 020,00 €</td></tr><tr><td class="art">1.6</td><td><strong>Remoção de Rodapé Existente</strong><p>Execução da remoção dos rodapés existentes em todo o apartamento, incluindo sala, hall e quartos, com recolha e transporte dos resíduos para destino autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">234,00 €</td><td class="n b">234,00 €</td></tr><tr><td class="art">1.7</td><td><strong>Demolição e Reconstrução de Paredes</strong><p>Execução da demolição das paredes existentes no quarto e na casa de banho, seguida da reconstrução das respetivas paredes em alvenaria de tijolo com 11 cm de espessura.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">681,00 €</td><td class="n b">681,00 €</td></tr><tr><td class="art">1.8</td><td><strong>Remoção de Teto de Madeira Existente</strong><p>Execução da remoção do teto de madeira existente no hall de entrada, incluindo recolha, carga e transporte dos resíduos para contentor ou vazadouro autorizado.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">298,00 €</td><td class="n b">298,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 01</td><td class="n b">4 290,00 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap02"><header><span class="code">Cap. 02</span><h3>Trabalhos de Preparação, Massas e Regularização</h3><span class="ct">974,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr><td class="art">2.1</td><td><strong>Estuque e Barramento de Paredes</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução dos trabalhos de estuque e barramento nas paredes da cozinha, bem como nas paredes do quarto e da sala que serão reconstruídas, numa área aproximada de 30 m². Inclui aplicação e respetivos acabamentos.</p></td>
+<td class="c">M2</td><td class="n">30</td><td class="n">17,80 €</td><td class="n b">534,00 €</td></tr><tr><td class="art">2.2</td><td><strong>Barramento de Tetos</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução de barramento nos tetos, numa área aproximada de 22 m², incluindo regularização e preparação das superfícies.</p></td>
+<td class="c">M2</td><td class="n">22</td><td class="n">20,00 €</td><td class="n b">440,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 02</td><td class="n b">974,00 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap03"><header><span class="code">Cap. 03</span><h3>Canalização, Divisórias e Instalações</h3><span class="ct">3 509,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr><td class="art">3.1</td><td><strong>Execução de Parede em Gesso Cartonado (Pladur)</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução de parede em gesso cartonado (Pladur) em quarto, incluindo estrutura metálica, placas, elementos de fixação e respetivos acabamentos.</p></td>
+<td class="c">M2</td><td class="n">4,5</td><td class="n">71,33 €</td><td class="n b">321,00 €</td></tr><tr><td class="art">3.2</td><td><strong>Canalização da Cozinha e Casa de Banho</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução da canalização na cozinha e casa de banho, incluindo tubagens, acessórios, ligações e todos os componentes necessários à correta instalação e funcionamento.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">1 352,00 €</td><td class="n b">1 352,00 €</td></tr><tr><td class="art">3.3</td><td><strong>Fornecimento e Execução de Tetos em Gesso Cartonado (Pladur)</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução de tetos em gesso cartonado (Pladur) na cozinha, hall e casa de banho, numa área aproximada de 22 m², incluindo estrutura metálica, elementos de fixação e respetivos acabamentos.</p></td>
+<td class="c">M2</td><td class="n">22</td><td class="n">42,00 €</td><td class="n b">924,00 €</td></tr><tr><td class="art">3.4</td><td><strong>Abertura e Fecho de Roços e Assentamento de Caixa</strong><p>Execução de trabalhos de abertura de roços nas paredes, destinados à passagem e instalação de infraestruturas, incluindo o respetivo fecho após a conclusão dos trabalhos e o assentamento da caixa no local previsto.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">912,00 €</td><td class="n b">912,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 03</td><td class="n b">3 509,00 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap04"><header><span class="code">Cap. 04</span><h3>Revestimentos e Pavimentos</h3><span class="ct">6 740,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr><td class="art">4.1</td><td><strong>Remodelação Completa da Casa de Banho</strong><p>Execução da remodelação completa da casa de banho, incluindo assentamento de revestimento cerâmico nas paredes e pavimento, com fornecimento, por parte da nossa empresa, de cimento-cola e betume para juntas, bem como montagem de sanita, lavatório, base de duche e respetivo gabinete de duche.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">2 310,00 €</td><td class="n b">2 310,00 €</td></tr><tr><td class="art">4.2</td><td><strong>Fornecimento e Aplicação de Rodapé</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução e aplicação de rodapé no hall de entrada, sala e quartos, numa extensão aproximada de 64 metros lineares, incluindo todos os elementos necessários à fixação e acabamento.</p></td>
+<td class="c">ML</td><td class="n">64</td><td class="n">7,50 €</td><td class="n b">480,00 €</td></tr><tr><td class="art">4.3</td><td><strong>Fornecimento e Aplicação de Pavimento Vinílico</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução e aplicação de pavimento vinílico na cozinha, hall, sala e quartos, numa área aproximada de 75 m², incluindo os trabalhos e acabamentos necessários à correta aplicação.</p></td>
+<td class="c">M2</td><td class="n">75</td><td class="n">52,67 €</td><td class="n b">3 950,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 04</td><td class="n b">6 740,00 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap05"><header><span class="code">Cap. 05</span><h3>Pinturas e Acabamentos Finais</h3><span class="ct">2 542,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr><td class="art">5.1</td><td><strong>Pintura de Tetos e Paredes</strong><p>Fornecimento, por parte da nossa empresa, dos materiais necessários à execução de pintura em tetos e paredes, numa área aproximada de 282 m², incluindo preparação das superfícies e aplicação das respetivas demãos de tinta para acabamento final.</p></td>
+<td class="c">M2</td><td class="n">282</td><td class="n">9,01 €</td><td class="n b">2 542,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 05</td><td class="n b">2 542,00 €</td></tr></tfoot></table></div></section>
+  <div class="totals">
+    <div><span>Subtotal (sem IVA)</span><span>18 055,00 €</span></div>
+    <div><span>IVA (6%)</span><span>1 083,30 €</span></div>
+    <div class="grand"><span>TOTAL COM IVA</span><span>19 138,30 €</span></div>
+  </div>
+  <p class="note" style="text-align:right">Quantidades aproximadas, sujeitas a confirmação em obra.</p>
+</div></section>
+
+<section class="block" id="resumo"><div class="wrap">
+  <div class="shead"><span class="eyebrow">04 · Resumo e pagamento</span><h2>Investimento por capítulo e plano de pagamentos</h2></div>
+  <div class="two">
+    <div class="card"><h3>Valores por capítulo</h3><div class="bar"><span class="code">Cap. 01</span><span class="bn">Demolições, Remoções e Transporte de Resíduos</span>
+<span class="track"><i style="width:23.8%"></i></span><span class="pct">23.8%</span><span class="v">4 290,00 €</span></div><div class="bar"><span class="code">Cap. 02</span><span class="bn">Trabalhos de Preparação, Massas e Regularização</span>
+<span class="track"><i style="width:5.4%"></i></span><span class="pct">5.4%</span><span class="v">974,00 €</span></div><div class="bar"><span class="code">Cap. 03</span><span class="bn">Canalização, Divisórias e Instalações</span>
+<span class="track"><i style="width:19.4%"></i></span><span class="pct">19.4%</span><span class="v">3 509,00 €</span></div><div class="bar"><span class="code">Cap. 04</span><span class="bn">Revestimentos e Pavimentos</span>
+<span class="track"><i style="width:37.3%"></i></span><span class="pct">37.3%</span><span class="v">6 740,00 €</span></div><div class="bar"><span class="code">Cap. 05</span><span class="bn">Pinturas e Acabamentos Finais</span>
+<span class="track"><i style="width:14.1%"></i></span><span class="pct">14.1%</span><span class="v">2 542,00 €</span></div>
+      <div class="totals" style="max-width:none"><div><span>Subtotal</span><span>18 055,00 €</span></div><div><span>IVA 6%</span><span>1 083,30 €</span></div><div class="grand"><span>TOTAL</span><span>19 138,30 €</span></div></div>
+    </div>
+    <div class="card"><h3>Plano de pagamentos</h3>
+      <div style="overflow-x:auto"><table class="paytab"><thead><tr><th>Fase</th><th>Momento</th><th class="n">%</th><th class="n">S/ IVA</th><th class="n">C/ IVA</th></tr></thead><tbody><tr><td class="art">1.ª</td><td>Adjudicação da obra</td><td class="n">30%</td><td class="n">5 416,50 €</td><td class="n b">5 741,49 €</td></tr><tr><td class="art">2.ª</td><td>Com 40% dos trabalhos executados</td><td class="n">30%</td><td class="n">5 416,50 €</td><td class="n b">5 741,49 €</td></tr><tr><td class="art">3.ª</td><td>Com 70% dos trabalhos executados</td><td class="n">30%</td><td class="n">5 416,50 €</td><td class="n b">5 741,49 €</td></tr><tr><td class="art">4.ª</td><td>Conclusão e entrega da obra</td><td class="n">10%</td><td class="n">1 805,50 €</td><td class="n b">1 913,83 €</td></tr></tbody></table></div>
+      <div class="bank">
+        <div><span>Titular</span><strong>Parâmetro Imaginário Unipessoal Lda</strong></div>
+        <div><span>NIF</span><strong>518526739</strong></div>
+        <div><span>IBAN</span><strong>PT50 0018 0003 6478 1792 0205 4</strong></div>
+      </div>
+      <ul class="bullets">
+        <li>Valores em euros. Ao valor dos trabalhos acresce IVA à taxa legal em vigor (6%).</li>
+        <li>Quantidades aproximadas, a confirmar em obra; eventuais acertos são faturados aos preços unitários indicados.</li>
+        <li>Qualquer trabalho não descrito é orçamentado à parte, mediante acordo prévio com o cliente.</li>
+        <li>Proposta válida por 30 dias a contar de 04.11.2026.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="cronograma"><div class="wrap">
+  <div class="shead"><span class="eyebrow">05 · Cronograma</span><h2>Sequência dos trabalhos</h2>
+  <p>Planeamento previsional em dias úteis, com as prestações ligadas ao avanço da obra. A data de início é definida na adjudicação.</p></div>
+  <div class="card gantt"><div class="gin">
+    <div class="g-head"><span>Art.</span><span>Tarefa</span><span>Dias</span><div class="g-weeks"><span>Sem. 1</span><span>Sem. 2</span><span>Sem. 3</span><span>Sem. 4</span><span>Sem. 5</span></div></div>
+    <div class="g-row ms"><span class="g-art">◆</span><span class="g-name">1.ª prestação · 30% · Adjudicação da obra</span><span class="g-d">dia 1</span><span class="g-track"><b style="left:calc(2.00% - 7px)"></b></span></div>
+<div class="g-ph"><span class="code">Cap. 01</span>Demolições, Remoções e Transporte de Resíduos</div>
+<div class="g-row"><span class="g-art">1.1–1.4</span><span class="g-name">Demolições na cozinha, despensa e parede cozinha/sala</span><span class="g-d">1–3</span><span class="g-track"><i style="left:0.00%;width:12.00%"></i></span></div>
+<div class="g-row"><span class="g-art">1.5</span><span class="g-name">Demolição e remoção de elementos da casa de banho</span><span class="g-d">2–3</span><span class="g-track"><i style="left:4.00%;width:8.00%"></i></span></div>
+<div class="g-row"><span class="g-art">1.6 · 1.8</span><span class="g-name">Remoção de rodapés e do teto de madeira do hall</span><span class="g-d">4–4</span><span class="g-track"><i style="left:12.00%;width:4.00%"></i></span></div>
+<div class="g-row"><span class="g-art">1.7</span><span class="g-name">Demolição e reconstrução de paredes (quarto e WC)</span><span class="g-d">4–6</span><span class="g-track"><i style="left:12.00%;width:12.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 03</span>Canalização, Divisórias e Instalações</div>
+<div class="g-row"><span class="g-art">3.4</span><span class="g-name">Abertura e fecho de roços e assentamento de caixa</span><span class="g-d">6–7</span><span class="g-track"><i style="left:20.00%;width:8.00%"></i></span></div>
+<div class="g-row"><span class="g-art">3.2</span><span class="g-name">Canalização da cozinha e casa de banho</span><span class="g-d">6–9</span><span class="g-track"><i style="left:20.00%;width:16.00%"></i></span></div>
+<div class="g-row"><span class="g-art">3.1</span><span class="g-name">Parede em gesso cartonado (Pladur) no quarto</span><span class="g-d">8–9</span><span class="g-track"><i style="left:28.00%;width:8.00%"></i></span></div>
+<div class="g-row"><span class="g-art">3.3</span><span class="g-name">Tetos em gesso cartonado na cozinha, hall e WC</span><span class="g-d">10–12</span><span class="g-track"><i style="left:36.00%;width:12.00%"></i></span></div>
+<div class="g-row ms"><span class="g-art">◆</span><span class="g-name">2.ª prestação · 30% · Com 40% dos trabalhos executados</span><span class="g-d">dia 12</span><span class="g-track"><b style="left:calc(46.00% - 7px)"></b></span></div>
+<div class="g-ph"><span class="code">Cap. 02</span>Trabalhos de Preparação, Massas e Regularização</div>
+<div class="g-row"><span class="g-art">2.1</span><span class="g-name">Estuque e barramento de paredes</span><span class="g-d">11–12</span><span class="g-track"><i style="left:40.00%;width:8.00%"></i></span></div>
+<div class="g-row"><span class="g-art">2.2</span><span class="g-name">Barramento de tetos</span><span class="g-d">13–14</span><span class="g-track"><i style="left:48.00%;width:8.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 04</span>Revestimentos e Pavimentos</div>
+<div class="g-row"><span class="g-art">4.1</span><span class="g-name">Remodelação completa da casa de banho</span><span class="g-d">13–18</span><span class="g-track"><i style="left:48.00%;width:24.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 05</span>Pinturas e Acabamentos Finais</div>
+<div class="g-row"><span class="g-art">5.1</span><span class="g-name">Pintura de tetos e paredes</span><span class="g-d">15–19</span><span class="g-track"><i style="left:56.00%;width:20.00%"></i></span></div>
+<div class="g-row ms"><span class="g-art">◆</span><span class="g-name">3.ª prestação · 30% · Com 70% dos trabalhos executados</span><span class="g-d">dia 19</span><span class="g-track"><b style="left:calc(74.00% - 7px)"></b></span></div>
+<div class="g-row"><span class="g-art">4.3</span><span class="g-name">Pavimento vinílico (cozinha, hall, sala e quartos)</span><span class="g-d">20–22</span><span class="g-track"><i style="left:76.00%;width:12.00%"></i></span></div>
+<div class="g-row"><span class="g-art">4.2</span><span class="g-name">Aplicação de rodapé</span><span class="g-d">23–23</span><span class="g-track"><i style="left:88.00%;width:4.00%"></i></span></div>
+<div class="g-row"><span class="g-art">—</span><span class="g-name">Limpeza geral, vistoria final e correções</span><span class="g-d">24–24</span><span class="g-track"><i style="left:92.00%;width:4.00%"></i></span></div>
+<div class="g-row ms"><span class="g-art">◆</span><span class="g-name">4.ª prestação · 10% · Conclusão e entrega da obra</span><span class="g-d">dia 25</span><span class="g-track"><b style="left:calc(98.00% - 7px)"></b></span></div>
+  </div></div>
+  <div class="gsum"><div><span class="eyebrow">Prazo total previsto</span><br><strong>25 dias úteis</strong> <span style="color:var(--muted)">≈ 5 semanas</span></div>
+  <p class="note" style="max-width:60ch;margin:0">Os prazos não contam feriados e podem ser ajustados com a entrega dos materiais escolhidos pelo cliente, com trabalhos a mais ou com regras do condomínio.</p></div>
+</div></section>
+
+<section class="block" id="caderno"><div class="wrap">
+  <div class="shead"><span class="eyebrow">06 · Caderno de encargos</span><h2>Condições técnicas e contratuais</h2></div>
+  <div class="card objeto"><span class="eyebrow">2 · Objeto</span><p style="margin-top:8px">O presente Caderno de Encargos define as condições técnicas e contratuais a que obedece a execução da empreitada de remodelação do apartamento, compreendendo demolições e remoções na cozinha, sala, hall e casa de banho, trabalhos de estuque e barramento, execução de paredes e tetos em gesso cartonado, canalização da cozinha e casa de banho, abertura e fecho de roços com assentamento de caixa, remodelação completa da casa de banho, aplicação de rodapé e pavimento vinílico e pintura de tetos e paredes, conforme descrito no Orçamento e na Planta de Alterações.</p></div>
+  <div class="two" style="margin-top:20px">
+    <div class="card" style="padding:20px"><h3>3 · Condições gerais</h3><ul class="terms"><li><span class='art'>3.1</span><p>Os trabalhos serão executados de acordo com as boas regras da arte, as normas técnicas e regulamentos em vigor e as indicações dos fabricantes dos materiais aplicados.</p></li><li><span class='art'>3.2</span><p>Todos os materiais a aplicar serão novos, de primeira qualidade e adequados ao fim a que se destinam. Qualquer substituição de materiais será previamente acordada com o Dono de Obra.</p></li><li><span class='art'>3.3</span><p>O Empreiteiro cumprirá as regras de segurança e saúde no trabalho (Decreto-Lei n.º 273/2003), garantindo a utilização de equipamentos de proteção individual e coletiva adequados a cada tarefa.</p></li><li><span class='art'>3.4</span><p>Os resíduos resultantes das demolições e remoções serão recolhidos, transportados e encaminhados para contentor ou vazadouro devidamente autorizado, conforme previsto no Orçamento.</p></li><li><span class='art'>3.5</span><p>O Empreiteiro manterá a obra limpa e arrumada durante a execução e procederá à limpeza geral no final dos trabalhos.</p></li><li><span class='art'>3.6</span><p>Quaisquer trabalhos a mais ou alterações ao previsto no Orçamento serão orçamentados à parte e só executados após aprovação prévia do Dono de Obra.</p></li><li><span class='art'>3.7</span><p>Compete ao Dono de Obra obter eventuais licenças ou comunicações prévias junto da Câmara Municipal e autorização do condomínio, salvo acordo em contrário.</p></li><li><span class='art'>3.8</span><p>Os trabalhos executados beneficiam das garantias previstas na legislação em vigor, não abrangendo danos resultantes de má utilização ou falta de manutenção.</p></li></ul></div>
+    <div>
+      <h3 style="font-size:16px;font-weight:800;margin:4px 0 12px">4 · Especificações técnicas</h3>
+      <details open><summary><span class='code'>Cap. 01</span>Demolições, Remoções e Transporte de Resíduos<span class='cnt'>8 artigos</span></summary><ul class='spec'><li><span class='art'>1.1</span><div><strong>Demolição e Remoção do Móvel da Cozinha</strong><p>Execução dos trabalhos de demolição e remoção do móvel existente na cozinha, incluindo desmontagem, recolha dos elementos removidos, carga, transporte e descarga dos resíduos em contentor ou vazadouro devidamente autorizado.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.2</span><div><strong>Remoção de Revestimento Cerâmico nas Paredes da Cozinha</strong><p>Execução da remoção dos azulejos existentes nas paredes da cozinha, através de meios adequados, incluindo recolha, carga e transporte dos resíduos para contentor devidamente autorizado.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.3</span><div><strong>Demolição de Paredes em Tijolo na Despensa da Cozinha</strong><p>Execução da demolição das paredes em alvenaria de tijolo existentes na despensa da cozinha, incluindo remoção dos elementos demolidos, recolha, carga, transporte e encaminhamento dos resíduos para contentor ou vazadouro autorizado.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.4</span><div><strong>Demolição da Parede entre o Hall e a Sala</strong><p>Execução da demolição da parede existente entre o hall e a sala, incluindo remoção dos materiais resultantes, recolha, carga e transporte dos resíduos para contentor ou vazadouro devidamente autorizado.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.5</span><div><strong>Demolição e Remoção de Elementos da Casa de Banho</strong><p>Execução da remoção dos azulejos existentes nas paredes e pavimento da casa de banho, incluindo remoção de banheira, bidé, sanita e lavatório, bem como recolha, carga, transporte e encaminhamento dos resíduos para contentor ou vazadouro autorizado.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.6</span><div><strong>Remoção de Rodapé Existente</strong><p>Execução da remoção dos rodapés existentes em todo o apartamento, nomeadamente na sala, hall e quartos, incluindo recolha e transporte dos resíduos para destino autorizado.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.7</span><div><strong>Demolição e Reconstrução de Paredes</strong><p>Execução da demolição das paredes existentes no quarto e na casa de banho, seguida da reconstrução das respetivas paredes em alvenaria de tijolo com 11 cm de espessura.</p></div><span class='un'>Vg</span></li><li><span class='art'>1.8</span><div><strong>Remoção de Teto de Madeira Existente</strong><p>Execução da remoção do teto de madeira existente no hall de entrada, incluindo recolha, carga, transporte e encaminhamento dos resíduos para contentor ou vazadouro autorizado.</p></div><span class='un'>Vg</span></li></ul></details><details><summary><span class='code'>Cap. 02</span>Trabalhos de Preparação, Massas e Regularização<span class='cnt'>2 artigos</span></summary><ul class='spec'><li><span class='art'>2.1</span><div><strong>Estuque e Barramento de Paredes</strong><p>Fornecimento, por parte da entidade executante, dos materiais necessários à execução de estuque e barramento nas paredes da cozinha, bem como nas paredes do quarto e da sala que serão reconstruídas, numa área aproximada de 30 m², incluindo aplicação e regularização das superfícies.</p></div><span class='un'>M2</span></li><li><span class='art'>2.2</span><div><strong>Barramento de Tetos</strong><p>Fornecimento dos materiais necessários e execução de barramento nos tetos, numa área aproximada de 22 m², incluindo regularização e preparação das superfícies.</p></div><span class='un'>M2</span></li></ul></details><details><summary><span class='code'>Cap. 03</span>Canalização, Divisórias e Instalações<span class='cnt'>4 artigos</span></summary><ul class='spec'><li><span class='art'>3.1</span><div><strong>Execução de Parede em Gesso Cartonado (Pladur)</strong><p>Fornecimento dos materiais necessários e execução de parede em gesso cartonado (Pladur) no quarto, incluindo estrutura metálica, placas de gesso cartonado, elementos de fixação e respetivos acabamentos.</p></div><span class='un'>M2</span></li><li><span class='art'>3.2</span><div><strong>Canalização da Cozinha e Casa de Banho</strong><p>Fornecimento dos materiais necessários e execução da canalização na cozinha e casa de banho, incluindo tubagens, acessórios, ligações e todos os componentes necessários à correta instalação e funcionamento das redes.</p></div><span class='un'>Vg</span></li><li><span class='art'>3.3</span><div><strong>Fornecimento e Execução de Tetos em Gesso Cartonado (Pladur)</strong><p>Fornecimento dos materiais necessários e execução de tetos em gesso cartonado (Pladur) na cozinha, hall e casa de banho, numa área aproximada de 22 m², incluindo estrutura metálica, elementos de fixação e respetivos acabamentos.</p></div><span class='un'>M2</span></li><li><span class='art'>3.4</span><div><strong>Abertura e Fecho de Roços e Assentamento de Caixa</strong><p>Execução da abertura de roços nas paredes, destinados à passagem e instalação de infraestruturas, incluindo o respetivo fecho e regularização após a conclusão dos trabalhos, bem como o assentamento da caixa no local previsto.</p></div><span class='un'>Vg</span></li></ul></details><details><summary><span class='code'>Cap. 04</span>Revestimentos e Pavimentos<span class='cnt'>3 artigos</span></summary><ul class='spec'><li><span class='art'>4.1</span><div><strong>Remodelação Completa da Casa de Banho</strong><p>Execução da remodelação completa da casa de banho, incluindo assentamento de revestimento cerâmico nas paredes e pavimento, com fornecimento de cimento-cola e betume para juntas, bem como montagem de sanita, lavatório, base de duche e respetivo gabinete de duche.</p></div><span class='un'>Vg</span></li><li><span class='art'>4.2</span><div><strong>Fornecimento e Aplicação de Rodapé</strong><p>Fornecimento dos materiais necessários e execução da aplicação de rodapé no hall de entrada, sala e quartos, numa extensão aproximada de 64 metros lineares, incluindo os elementos necessários à fixação e acabamento.</p></div><span class='un'>ML</span></li><li><span class='art'>4.3</span><div><strong>Fornecimento e Aplicação de Pavimento Vinílico</strong><p>Fornecimento dos materiais necessários e execução da aplicação de pavimento vinílico na cozinha, hall, sala e quartos, numa área aproximada de 75 m², incluindo os trabalhos e acabamentos necessários à correta aplicação.</p></div><span class='un'>M2</span></li></ul></details><details><summary><span class='code'>Cap. 05</span>Pinturas e Acabamentos Finais<span class='cnt'>1 artigos</span></summary><ul class='spec'><li><span class='art'>5.1</span><div><strong>Pintura de Tetos e Paredes</strong><p>Fornecimento dos materiais necessários e execução de pintura em tetos e paredes, numa área aproximada de 282 m², incluindo preparação das superfícies e aplicação das respetivas demãos de tinta para acabamento final.</p></div><span class='un'>M2</span></li></ul></details>
+      <div class="card" style="padding:20px;margin-top:20px"><h3>5 · Exclusões</h3><ul class="terms"><li><span class='art'>5.1</span><p>Projetos de arquitetura ou especialidades, licenças e taxas municipais.</p></li><li><span class='art'>5.2</span><p>Fornecimento de luminárias e equipamentos de climatização, salvo indicação em contrário no Orçamento.</p></li><li><span class='art'>5.3</span><p>Quaisquer trabalhos não descritos no Orçamento.</p></li></ul>
+      <p class="note">Os trabalhos não incluídos, bem como alterações ou trabalhos a mais, são orçamentados à parte e só executados após aprovação prévia do Dono de Obra.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="aceitacao"><div class="wrap">
+  <div class="shead"><span class="eyebrow">07 · Aceitação e adjudicação</span><h2>Declaração do cliente</h2></div>
+  <div class="card accept">
+    <p>O valor global da empreitada é de <strong>18 055,00 €</strong> (sem IVA), acrescido de IVA à taxa de 6% (1 083,30 €), totalizando <strong>19 138,30 €</strong>. Os pagamentos são feitos por transferência bancária, conforme o plano de pagamentos.</p>
+    <p>Ao assinar o presente documento, o Cliente declara que:</p>
+    <ul class="checks"><li>Tomou conhecimento e compreendeu todos os trabalhos descritos no Orçamento e no Caderno de Encargos, incluindo os materiais, as quantidades e a forma como serão executados;</li><li>Tem conhecimento do estado atual do imóvel e dos trabalhos de demolição e remoção que serão realizados;</li><li>Aceita os valores, o plano de pagamentos e as condições aqui definidas;</li><li>Tem conhecimento de que os trabalhos não incluídos (ponto 5 – Exclusões do Caderno de Encargos), bem como quaisquer alterações ou trabalhos a mais, serão orçamentados à parte e só executados após a sua aprovação prévia.</li></ul>
+    <div class="callout">A assinatura de ambas as partes constitui a adjudicação da obra nos termos aqui descritos.</div>
+    <div class="sign">
+      <div><span class="who">O cliente</span><span class="line"></span><strong>Sra. Cátia Silva e Sr. Luís Guerreiro</strong><small>Data: ____ / ____ / ________</small></div>
+      <div><span class="who">O empreiteiro</span><span class="line"></span><strong>Parâmetro Imaginário Unipessoal Lda</strong><small>Data: ____ / ____ / ________</small></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><strong>Parâmetro Imaginário Unipessoal Lda</strong><span>NIF 518526739</span><span>Rua da Piedade, Algés, Oeiras</span></div>
+  <div><strong>Contactos</strong><span>964 286 286 · 927 147 574</span><span>geral@parametroimaginario.com</span></div>
+  <div><strong>Online</strong><span>www.parametroimaginario.pt</span><span>@parametroimaginario</span></div>
+  <div><strong>Obrigado pela sua preferência.</strong><span>Proposta PI-2026-001 · válida 30 dias</span></div>
+</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const DATA = {"walls": [{"o": [[-5.146, -3.11], [-4.702, -4.667], [-2.899, -4.138], [-2.903, -4.126], [-0.93, -3.594], [-0.621, -4.769], [4.864, -4.769], [4.828, -1.66], [3.25, -1.644], [3.25, -1.479], [4.841, -1.458], [4.592, 2.005], [4.607, 2.006], [4.343, 5.91], [0.783, 5.714], [0.784, 5.76], [-2.517, 4.841], [-2.017, 2.542], [-2.115, 2.529], [-1.943, 1.648], [-4.443, 1.113], [-4.39, 0.914], [-1.703, 1.489], [-1.872, 2.355], [-1.518, 2.402], [-1.583, 2.659], [-1.821, 2.605], [-2.275, 4.695], [0.573, 5.489], [0.522, 3.217], [-0.71, 2.858], [-0.815, 2.834], [-0.748, 2.565], [-0.828, 2.545], [-0.532, 2.554], [-0.534, 2.66], [0.715, 3.105], [0.789, 5.509], [4.152, 5.695], [4.388, 2.199], [-0.41, 1.915], [-0.408, 1.835], [-0.691, 1.827], [-0.68, 1.615], [-0.513, 1.62], [-0.513, 1.639], [4.396, 1.877], [4.621, -1.256], [3.045, -1.277], [3.045, -1.574], [-0.324, -1.615], [-0.345, 0.569], [-0.494, 0.601], [-0.497, 0.792], [-0.637, 0.789], [-0.626, 0.575], [-0.772, 0.531], [-0.57, 0.585], [-0.55, 0.511], [-0.55, 0.511], [-0.42, 0.514], [-0.418, 0.514], [-0.416, 0.514], [-0.414, 0.513], [-0.412, 0.512], [-0.41, 0.512], [-0.408, 0.511], [-0.407, 0.51], [-0.405, 0.508], [-0.404, 0.507], [-0.403, 0.505], [-0.402, 0.504], [-0.401, 0.502], [-0.4, 0.5], [-0.4, 0.498], [-0.399, 0.496], [-0.399, 0.494], [-0.357, -1.796], [-0.357, -1.798], [-0.357, -1.8], [-0.358, -1.802], [-0.358, -1.804], [-0.359, -1.806], [-0.36, -1.807], [-0.361, -1.809], [-0.362, -1.811], [-0.363, -1.811], [4.626, -1.863], [4.656, -4.564], [-0.463, -4.564], [-0.785, -3.342], [-2.907, -3.915], [-3.915, -0.48], [-2.749, -0.181], [-2.786, -0.041], [-4.141, -0.404], [-4.099, -0.558], [-4.075, -0.551], [-3.149, -3.998], [-4.561, -4.412], [-5.007, -2.853], [-5.983, -3.15], [-6.937, -0.012], [-5.985, 0.253], [-5.46, -0.044], [-5.163, -0.868], [-4.796, -0.761], [-4.842, -0.591], [-5.058, -0.649], [-5.266, 0.163], [-5.324, 0.714], [-5.163, 0.749], [-5.216, 0.947], [-5.547, 0.876], [-5.476, 0.201], [-5.958, 0.474], [-7.194, 0.129], [-6.12, -3.406]], "h": []}, {"o": [[-1.627, 0.125], [-1.622, 0.107], [-0.567, 0.378], [-0.568, 0.41]], "h": []}, {"o": [[-1.259, 2.437], [-0.877, 2.488], [-0.879, 2.532]], "h": []}, {"o": [[-2.224, 0.109], [-2.224, 0.109], [-2.202, 0.026]], "h": []}], "lintels": [{"o": [[-5.163, 0.749], [-4.39, 0.914], [-4.443, 1.113], [-5.216, 0.947]], "h": []}, {"o": [[-1.518, 2.402], [-1.259, 2.437], [-0.879, 2.532], [-0.877, 2.488], [-0.727, 2.509], [-0.691, 1.827], [-0.408, 1.835], [-0.41, 1.915], [-0.516, 1.908], [-0.532, 2.554], [-0.828, 2.545], [-0.748, 2.565], [-0.815, 2.834], [-1.583, 2.659]], "h": []}, {"o": [[-0.497, 0.792], [-0.513, 1.62], [-0.68, 1.615], [-0.637, 0.789]], "h": []}, {"o": [[-2.224, 0.109], [-2.202, 0.026], [-2.224, 0.109], [-2.786, -0.041], [-2.749, -0.181], [-1.622, 0.107], [-1.627, 0.125], [-1.671, 0.114], [-1.707, 0.248], [-1.74, 0.238]], "h": []}, {"o": [[-4.796, -0.761], [-4.099, -0.558], [-4.141, -0.404], [-4.842, -0.591]], "h": []}], "demolir": [{"o": [[-0.526, 0.421], [-0.57, 0.585], [-1.715, 0.278], [-1.671, 0.114]], "h": []}], "construir": [{"o": [[-0.419, 0.494], [-0.549, 0.491], [-0.507, -1.799], [-0.377, -1.797]], "h": []}], "rooms": [{"name": "Cozinha", "area": 9.01, "poly": {"o": [[-6.02, -3.219], [-5.044, -2.922], [-4.599, -4.481], [-3.082, -4.035], [-4.037, -0.483], [-5.129, -0.801], [-5.415, -0.006], [-5.977, 0.312], [-7.006, 0.026]], "h": []}, "c": [-4.993, -2.0]}, {"name": "Sala de estar", "area": 26.2, "poly": {"o": [[-0.505, -4.619], [4.712, -4.619], [4.68, -1.808], [-0.399, -1.755], [-0.505, 0.45], [-3.984, -0.441], [-2.945, -3.982], [-0.824, -3.41]], "h": []}, "c": [0.309, -2.563]}, {"name": "Hall", "area": 4.82, "poly": {"o": [[-5.097, -0.716], [-1.725, 0.185], [-1.767, 1.532], [-5.384, 0.758], [-5.32, 0.153]], "h": []}, "c": [-3.545, 0.435]}, {"name": "Circula\u00e7\u00e3o", "area": 1.82, "poly": {"o": [[-1.725, 0.185], [-0.569, 0.535], [-0.675, 2.571], [-1.937, 2.401], [-1.767, 1.532]], "h": []}, "c": [-1.215, 1.437]}, {"name": "Banho", "area": 4.79, "poly": {"o": [[-1.863, 2.539], [-0.696, 2.804], [0.576, 3.176], [0.629, 5.562], [-2.34, 4.734]], "h": []}, "c": [-0.748, 4.033]}, {"name": "Quarto 1", "area": 15.16, "poly": {"o": [[-0.378, -1.671], [3.1, -1.628], [3.1, -1.331], [4.68, -1.31], [4.447, 1.935], [-0.569, 1.691], [-0.548, 0.556], [-0.399, 0.524]], "h": []}, "c": [2.035, 0.131]}, {"name": "Quarto 2", "area": 12.21, "poly": {"o": [[-0.569, 1.85], [4.447, 2.147], [4.203, 5.752], [0.735, 5.562], [0.661, 3.144], [-0.59, 2.698]], "h": []}, "c": [2.289, 3.694]}], "doors": [{"a": [-4.811, -0.706], "l": [-4.62, -1.406], "w": 0.725}, {"a": [-2.764, -0.122], "l": [-2.616, -0.684], "w": 0.581}, {"a": [-2.202, 0.026], "l": [-2.054, -0.536], "w": 0.581}, {"a": [-5.171, 0.779], "l": [-4.97, 0.015], "w": 0.79}, {"a": [-0.601, 0.79], "l": [0.226, 0.811], "w": 0.827}, {"a": [-0.633, 1.829], "l": [0.088, 1.85], "w": 0.721}, {"a": [-1.566, 2.592], "l": [-1.757, 3.356], "w": 0.787}]};
+const H = 2.6, LOW = 1.05;
+const box = document.getElementById('viewer');
+if(!window.THREE){ box.insertAdjacentHTML('beforeend','<p style="position:absolute;inset:auto 0 45%;text-align:center;color:var(--muted)">Não foi possível carregar o modelo 3D.</p>'); return; }
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+box.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(40,1,0.1,200);
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.maxPolarAngle = Math.PI/2.05; controls.minDistance = 3; controls.maxDistance = 40;
+controls.enableZoom = true;
+scene.add(new THREE.HemisphereLight(0xffffff,0x8899aa,.75));
+const sun = new THREE.DirectionalLight(0xffffff,.75); sun.position.set(-8,14,6); sun.castShadow = true;
+sun.shadow.mapSize.set(2048,2048); Object.assign(sun.shadow.camera,{left:-10,right:10,top:10,bottom:-10}); scene.add(sun);
+function shapeOf(p){ const s=new THREE.Shape(p.o.map(([x,z])=>new THREE.Vector2(x,-z))); p.h.forEach(h=>s.holes.push(new THREE.Path(h.map(([x,z])=>new THREE.Vector2(x,-z))))); return s; }
+function extrude(list,h,y0,mat){ const g=new THREE.Group(); list.forEach(p=>{ const geo=new THREE.ExtrudeGeometry(shapeOf(p),{depth:h,bevelEnabled:false}); geo.rotateX(-Math.PI/2);
+  const m=new THREE.Mesh(geo,mat); m.position.y=y0; m.castShadow=m.receiveShadow=true; g.add(m); }); return g; }
+function tex(draw){ const c=document.createElement('canvas'); c.width=c.height=256; draw(c.getContext('2d')); const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; return t; }
+const wood=tex(g=>{ g.fillStyle='#C9A47A'; g.fillRect(0,0,256,256); for(let i=0;i<8;i++){ g.fillStyle=`hsl(30,${30+((i*7)%12)}%,${58+((i*5)%10)}%)`; g.fillRect(0,i*32,256,31); g.fillStyle='rgba(90,60,30,.35)'; g.fillRect((i*97)%256,i*32,2,32);} });
+const tile=tex(g=>{ g.fillStyle='#DDE6EA'; g.fillRect(0,0,256,256); g.strokeStyle='#B9C6CC'; g.lineWidth=3; for(let i=0;i<=256;i+=64){ g.beginPath(); g.moveTo(i,0); g.lineTo(i,256); g.stroke(); g.beginPath(); g.moveTo(0,i); g.lineTo(256,i); g.stroke(); } });
+const old=tex(g=>{ g.fillStyle='#BFB8AC'; g.fillRect(0,0,256,256); g.strokeStyle='#A69F92'; g.lineWidth=2; for(let i=0;i<=256;i+=85){ g.beginPath(); g.moveTo(i,0); g.lineTo(i,256); g.stroke(); g.beginPath(); g.moveTo(0,i); g.lineTo(256,i); g.stroke(); } });
+const matWall=new THREE.MeshStandardMaterial({color:0xE9ECF2,roughness:.9}), matTop=new THREE.MeshStandardMaterial({color:0x2A3446,roughness:.8});
+const matDemo=new THREE.MeshStandardMaterial({color:0xD62828,roughness:.6,transparent:true,opacity:.35}), matNew=new THREE.MeshStandardMaterial({color:0x22A04B,roughness:.6});
+const FM={depois:{wood:new THREE.MeshStandardMaterial({map:wood,roughness:.75}),tile:new THREE.MeshStandardMaterial({map:tile,roughness:.5})},antes:{wood:new THREE.MeshStandardMaterial({map:old,roughness:.9}),tile:new THREE.MeshStandardMaterial({map:old,roughness:.9})}};
+const floors=[];
+DATA.rooms.forEach(r=>{ const geo=new THREE.ShapeGeometry(shapeOf(r.poly)); geo.rotateX(-Math.PI/2); const uv=geo.attributes.uv,pos=geo.attributes.position;
+  for(let i=0;i<uv.count;i++) uv.setXY(i,pos.getX(i)/1.2,pos.getZ(i)/1.2);
+  const kind=r.name==='Banho'?'tile':'wood'; const m=new THREE.Mesh(geo,FM.depois[kind]); m.receiveShadow=true; m.position.y=.005; m.userData.kind=kind; scene.add(m); floors.push(m); });
+const slab=new THREE.Mesh(new THREE.CircleGeometry(16,64),new THREE.MeshStandardMaterial({roughness:1})); slab.rotation.x=-Math.PI/2; slab.position.y=-.01; slab.receiveShadow=true; scene.add(slab);
+let groups=[], demo, novo, state='depois', low=false;
+function buildWalls(h){ groups.forEach(g=>scene.remove(g));
+  demo=extrude(DATA.demolir,h,0,matDemo); novo=extrude(DATA.construir,h,0,matNew);
+  groups=[extrude(DATA.walls,h,0,matWall), extrude(DATA.walls,.012,h,matTop), h>2.15?extrude(DATA.lintels,h-2.1,2.1,matWall):new THREE.Group(), demo, novo];
+  groups.forEach(g=>scene.add(g)); apply(); }
+const doorMat=new THREE.MeshStandardMaterial({color:0xF7F3EC,roughness:.6});
+DATA.doors.forEach(d=>{ const dx=d.l[0]-d.a[0],dz=d.l[1]-d.a[1],len=Math.hypot(dx,dz); const leaf=new THREE.Mesh(new THREE.BoxGeometry(len,2.05,.04),doorMat);
+  leaf.position.set(d.a[0]+dx/2,1.025,d.a[1]+dz/2); leaf.rotation.y=-Math.atan2(dz,dx); leaf.castShadow=true; scene.add(leaf); });
+const labels=[];
+function label(t,s){ const c=document.createElement('canvas'); c.width=512; c.height=160; const g=c.getContext('2d');
+  g.font='800 54px Manrope, sans-serif'; g.textAlign='center'; g.fillStyle='#0B1F3A'; g.fillText(t,256,70);
+  g.font='500 40px "IBM Plex Mono", monospace'; g.fillStyle='#1F4FD1'; g.fillText(s,256,128);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true})); sp.scale.set(2,.62,1); sp.renderOrder=10; return sp; }
+function buildLabels(){ labels.forEach(l=>scene.remove(l)); labels.length=0;
+  DATA.rooms.forEach(r=>{ const sm=r.area<3, sp=label(sm?'Circ.':r.name, r.area.toFixed(2).replace('.',',')+' m²'); if(sm) sp.scale.multiplyScalar(.6);
+    sp.position.set(r.c[0],.35,r.c[1]); scene.add(sp); labels.push(sp); }); }
+function apply(){ const after=state==='depois';
+  if(demo) demo.children.forEach(m=>m.material=after?matDemo:matWall);
+  if(novo) novo.visible=after; floors.forEach(f=>f.material=FM[after?'depois':'antes'][f.userData.kind]); }
+const $=id=>document.getElementById(id);
+function setState(s){ state=s; $('bAntes').setAttribute('aria-pressed',s==='antes'); $('bDepois').setAttribute('aria-pressed',s==='depois'); apply(); }
+$('bAntes').onclick=()=>setState('antes'); $('bDepois').onclick=()=>setState('depois');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches; let tween=null;
+function fly(pos,look){ const f=camera.position.clone(),ft=controls.target.clone(),t0=performance.now(),dur=reduce?0:900;
+  tween=now=>{ const k=dur?Math.min(1,(now-t0)/dur):1,e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; camera.position.lerpVectors(f,pos,e); controls.target.lerpVectors(ft,look,e); if(k>=1) tween=null; }; }
+const narrow=()=>box.clientWidth<640;
+const P3=()=>narrow()?[new THREE.Vector3(-3,19,15),new THREE.Vector3(0,0,1)]:[new THREE.Vector3(-3.5,13.5,12),new THREE.Vector3(0,0,.6)];
+$('v3d').onclick=()=>{ fly(...P3()); $('v3d').setAttribute('aria-pressed',true); $('vTop').setAttribute('aria-pressed',false); };
+$('vTop').onclick=()=>{ fly(new THREE.Vector3(.01,narrow()?22:16,.6),new THREE.Vector3(0,0,.3)); $('vTop').setAttribute('aria-pressed',true); $('v3d').setAttribute('aria-pressed',false); };
+$('vLow').onclick=()=>{ low=!low; $('vLow').setAttribute('aria-pressed',low); buildWalls(low?LOW:H); };
+function bg(){ scene.background=new THREE.Color(css('--stage')||'#E6EBF3'); slab.material.color.set(css('--bg')||'#F5F7FB'); }
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',bg);
+new MutationObserver(bg).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+function resize(){ const w=box.clientWidth,h=box.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.fov=w<640?55:40; camera.updateProjectionMatrix(); }
+new ResizeObserver(resize).observe(box);
+const [p0,t0]=P3(); camera.position.copy(p0); controls.target.copy(t0);
+bg(); buildWalls(H); buildLabels(); resize();
+document.fonts && document.fonts.ready.then(buildLabels);
+let visible=true; new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(box);
+renderer.setAnimationLoop(now=>{ if(!visible) return; tween&&tween(now); controls.update(); renderer.render(scene,camera); });
+})();
+</script>
