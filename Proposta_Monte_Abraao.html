@@ -40,7 +40,15 @@ p{margin:0}
 
 /* cover */
 .cover{background:var(--navy);color:var(--on-navy)}
-.cover .wrap{padding-block:40px 36px;display:grid;gap:28px}
+.cover{position:relative;overflow:hidden;background:radial-gradient(1200px 500px at 85% -10%,rgba(31,79,209,.35),transparent 60%),var(--navy)}
+.cover::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.cover .wrap{position:relative;z-index:1;padding-block:40px 40px;display:grid;gap:28px}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.hero-img{margin:0;background:#EEF0F3;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}
+.hero-img img{display:block;width:100%;height:auto}
+.hero-img figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;background:rgba(7,16,30,.92);color:var(--on-navy-muted);font:500 11px var(--font-m);letter-spacing:.08em;text-transform:uppercase}
+.hero-img figcaption b{color:#fff;font-weight:500}
 .brand{display:flex;align-items:center;gap:14px;font:700 13px var(--font-d);letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-muted)}
 .brand img{width:64px;height:auto}
 .cover h1{color:var(--on-navy);font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-.02em}
@@ -215,6 +223,25 @@ summary .cnt{font:500 11px var(--font-m);color:var(--muted)}
 .chg p{font-size:13px;color:var(--muted);line-height:1.5}
 .chg .val{margin-top:6px;font:600 13px var(--font-m);color:var(--ink);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
 .chg .val i{font-style:normal;color:var(--accent)}
+/* como vai ficar */
+.compare{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#EEF0F3;aspect-ratio:1400/875;max-width:100%;user-select:none;touch-action:pan-y}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.compare .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(11,31,58,.25);transform:translateX(-1px);pointer-events:none}
+.compare .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#fff;font:700 13px var(--font-d);padding:9px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 16px rgba(11,31,58,.3)}
+.compare .tag{position:absolute;top:14px;font:600 11px var(--font-m);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:8px;background:rgba(11,31,58,.85);color:#fff}
+.compare .tag.l{left:14px}.compare .tag.r{right:14px;background:var(--accent)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare input:focus-visible + .handle::after{outline:3px solid #fff;outline-offset:2px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px;margin-top:16px}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gallery img{display:block;width:100%;height:auto;background:#EEF0F3}
+.gallery figcaption{padding:12px 16px;display:grid;gap:2px}
+.gallery figcaption strong{color:var(--ink);font-size:14px}
+.gallery figcaption span{color:var(--muted);font-size:13px}
+.block.alt{background:var(--surface);}
+.block.alt .card,.block.alt details,.block.alt .gallery figure{background:var(--bg)}
+.block.alt{border-block:1px solid var(--line);padding-bottom:56px;margin-top:48px}
 /* nav state */
 nav.toc a[aria-current="true"]{background:var(--accent);color:var(--accent-ink)}
 nav.toc a[aria-current="true"] .k{color:inherit}
@@ -232,10 +259,13 @@ footer span{font-size:13px;display:block;word-break:break-word}
 <header class="cover">
   <div class="wrap">
     <div class="brand"><img src="data:image/png;base64,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" alt="Logótipo Parâmetro Imaginário"><span>Parâmetro Imaginário Unipessoal Lda</span></div>
-    <div>
-      <div class="eyebrow" style="color:var(--on-navy-muted)">Proposta n.º PI-2026-001 · 04.11.2026</div>
-      <h1>Proposta de Orçamento</h1>
-      <p class="lead">Remodelação de apartamento em Monte Abraão, Sintra, preparada para a Sra. Cátia Silva e o Sr. Luís Guerreiro.</p>
+    <div class="hero">
+      <div>
+        <div class="eyebrow" style="color:var(--on-navy-muted)">Proposta n.º PI-2026-001 · 04.11.2026</div>
+        <h1>Proposta de Orçamento</h1>
+        <p class="lead">Remodelação de apartamento em Monte Abraão, Sintra, preparada para a Sra. Cátia Silva e o Sr. Luís Guerreiro.</p>
+      </div>
+      <figure class="hero-img"><img src="img/depois.jpg" alt="Vista 3D do apartamento depois da obra, com pavimento vinílico e mobiliário ilustrativo" width="1400" height="875"><figcaption><b>Como vai ficar</b><span>Vista 3D ilustrativa</span></figcaption></figure>
     </div>
     <div class="meta">
       <div class="big"><span>Investimento total</span><strong>19 138,30 €</strong></div>
@@ -252,13 +282,14 @@ footer span{font-size:13px;display:block;word-break:break-word}
   <div class="progress" id="prog"></div>
   <div class="wrap">
     <a href="#resumo-obra"><span class="k">00</span>O que muda</a>
-    <a href="#modelo"><span class="k">01</span>Modelo 3D</a>
-    <a href="#planta"><span class="k">02</span>Planta</a>
-    <a href="#orcamento"><span class="k">03</span>Orçamento</a>
-    <a href="#resumo"><span class="k">04</span>Resumo e pagamento</a>
-    <a href="#cronograma"><span class="k">05</span>Cronograma</a>
-    <a href="#caderno"><span class="k">06</span>Caderno de encargos</a>
-    <a href="#aceitacao"><span class="k">07</span>Aceitação</a>
+    <a href="#visual"><span class="k">01</span>Como vai ficar</a>
+    <a href="#modelo"><span class="k">02</span>Modelo 3D</a>
+    <a href="#planta"><span class="k">03</span>Planta</a>
+    <a href="#orcamento"><span class="k">04</span>Orçamento</a>
+    <a href="#resumo"><span class="k">05</span>Pagamento</a>
+    <a href="#cronograma"><span class="k">06</span>Cronograma</a>
+    <a href="#caderno"><span class="k">07</span>Caderno de encargos</a>
+    <a href="#aceitacao"><span class="k">08</span>Aceitação</a>
   </div>
 </nav>
 
@@ -275,8 +306,25 @@ footer span{font-size:13px;display:block;word-break:break-word}
 <h3>Pintura completa</h3><p>Tetos e paredes preparados e pintados com acabamento final.</p><span class="val">2 542,00 € <i>→</i></span></a></div>
 </div></section>
 
+<section class="block alt" id="visual"><div class="wrap">
+  <div class="shead"><span class="eyebrow">01 · Como vai ficar</span><h2>Antes e depois da remodelação</h2>
+  <p>Arraste o comparador para ver o apartamento antes e depois da obra. As imagens saem do modelo 3D da proposta, com as paredes cortadas para se ver o interior.</p></div>
+  <div class="compare" id="cmp" style="--pos:50%">
+    <img src="img/antes.jpg" alt="Apartamento antes da obra" width="1400" height="875">
+    <img class="after" src="img/depois.jpg" alt="Apartamento depois da obra" width="1400" height="875">
+    <span class="tag l">Antes</span><span class="tag r">Depois</span>
+    <input type="range" id="cmpr" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+    <span class="handle"></span>
+  </div>
+  <div class="gallery">
+    <figure><img src="img/sala.jpg" alt="Sala aberta ao hall com pavimento vinílico" width="1200" height="750" loading="lazy"><figcaption><strong>Sala aberta ao hall</strong><span>Sem a parede do hall (art. 1.4), com pavimento vinílico contínuo e rodapé novo.</span></figcaption></figure>
+    <figure><img src="img/quartos.jpg" alt="Quartos com pavimento vinílico e casa de banho nova" width="1200" height="750" loading="lazy"><figcaption><strong>Quartos e casa de banho</strong><span>Quartos com o novo pavimento e casa de banho remodelada, com base de duche.</span></figcaption></figure>
+  </div>
+  <p class="note">Imagens ilustrativas. O mobiliário serve apenas para dar escala e não está incluído no orçamento. A nova cozinha também não está incluída.</p>
+</div></section>
+
 <section class="block" id="modelo"><div class="wrap">
-  <div class="shead"><span class="eyebrow">01 · Modelo 3D</span><h2>O apartamento antes e depois da obra</h2>
+  <div class="shead"><span class="eyebrow">02 · Modelo 3D</span><h2>O apartamento antes e depois da obra</h2>
   <p>Rode o modelo para ver cada divisão. Compare a cozinha e a casa de banho antes e depois: a banheira e o bidé dão lugar a uma base de duche com resguardo, entra o novo pavimento vinílico, a parede entre o hall e a sala é demolida (vermelho) e surge a nova parede junto ao quarto (verde).</p></div>
   <div class="viewer" id="viewer">
     <div class="vctl">
@@ -288,8 +336,8 @@ footer span{font-size:13px;display:block;word-break:break-word}
   </div>
 </div></section>
 
-<section class="block" id="planta"><div class="wrap">
-  <div class="shead"><span class="eyebrow">02 · Planta de alterações</span><h2>Paredes a demolir e a construir</h2>
+<section class="block alt" id="planta"><div class="wrap">
+  <div class="shead"><span class="eyebrow">03 · Planta de alterações</span><h2>Paredes a demolir e a construir</h2>
   <p>Desenho esquemático redesenhado a partir da planta de imobiliária, com o quadro de áreas de cada divisão.</p></div>
   <div class="plan">
     <div class="card"><svg viewBox="-7.49 -5.07 12.66 11.28" role="img" aria-label="Planta de alterações do apartamento"><path d="M-6.020,-3.219 L-5.044,-2.922 L-4.599,-4.481 L-3.082,-4.035 L-4.037,-0.483 L-5.129,-0.801 L-5.415,-0.006 L-5.977,0.312 L-7.006,0.026Z" style="fill:var(--r-coz)"/><path d="M-0.505,-4.619 L4.712,-4.619 L4.680,-1.808 L-0.399,-1.755 L-0.505,0.450 L-3.984,-0.441 L-2.945,-3.982 L-0.824,-3.410Z" style="fill:var(--r-sala)"/><path d="M-5.097,-0.716 L-1.725,0.185 L-1.767,1.532 L-5.384,0.758 L-5.320,0.153Z" style="fill:var(--r-def)"/><path d="M-1.725,0.185 L-0.569,0.535 L-0.675,2.571 L-1.937,2.401 L-1.767,1.532Z" style="fill:var(--r-def)"/><path d="M-1.863,2.539 L-0.696,2.804 L0.576,3.176 L0.629,5.562 L-2.340,4.734Z" style="fill:var(--r-wc)"/><path d="M-0.378,-1.671 L3.100,-1.628 L3.100,-1.331 L4.680,-1.310 L4.447,1.935 L-0.569,1.691 L-0.548,0.556 L-0.399,0.524Z" style="fill:var(--r-def)"/><path d="M-0.569,1.850 L4.447,2.147 L4.203,5.752 L0.735,5.562 L0.661,3.144 L-0.590,2.698Z" style="fill:var(--r-def)"/><path class="wall" d="M-5.146,-3.110 L-4.702,-4.667 L-2.899,-4.138 L-2.903,-4.126 L-0.930,-3.594 L-0.621,-4.769 L4.864,-4.769 L4.828,-1.660 L3.250,-1.644 L3.250,-1.479 L4.841,-1.458 L4.592,2.005 L4.607,2.006 L4.343,5.910 L0.783,5.714 L0.784,5.760 L-2.517,4.841 L-2.017,2.542 L-2.115,2.529 L-1.943,1.648 L-4.443,1.113 L-4.390,0.914 L-1.703,1.489 L-1.872,2.355 L-1.518,2.402 L-1.583,2.659 L-1.821,2.605 L-2.275,4.695 L0.573,5.489 L0.522,3.217 L-0.710,2.858 L-0.815,2.834 L-0.748,2.565 L-0.828,2.545 L-0.532,2.554 L-0.534,2.660 L0.715,3.105 L0.789,5.509 L4.152,5.695 L4.388,2.199 L-0.410,1.915 L-0.408,1.835 L-0.691,1.827 L-0.680,1.615 L-0.513,1.620 L-0.513,1.639 L4.396,1.877 L4.621,-1.256 L3.045,-1.277 L3.045,-1.574 L-0.324,-1.615 L-0.345,0.569 L-0.494,0.601 L-0.497,0.792 L-0.637,0.789 L-0.626,0.575 L-0.772,0.531 L-0.570,0.585 L-0.550,0.511 L-0.550,0.511 L-0.420,0.514 L-0.418,0.514 L-0.416,0.514 L-0.414,0.513 L-0.412,0.512 L-0.410,0.512 L-0.408,0.511 L-0.407,0.510 L-0.405,0.508 L-0.404,0.507 L-0.403,0.505 L-0.402,0.504 L-0.401,0.502 L-0.400,0.500 L-0.400,0.498 L-0.399,0.496 L-0.399,0.494 L-0.357,-1.796 L-0.357,-1.798 L-0.357,-1.800 L-0.358,-1.802 L-0.358,-1.804 L-0.359,-1.806 L-0.360,-1.807 L-0.361,-1.809 L-0.362,-1.811 L-0.363,-1.811 L4.626,-1.863 L4.656,-4.564 L-0.463,-4.564 L-0.785,-3.342 L-2.907,-3.915 L-3.915,-0.480 L-2.749,-0.181 L-2.786,-0.041 L-4.141,-0.404 L-4.099,-0.558 L-4.075,-0.551 L-3.149,-3.998 L-4.561,-4.412 L-5.007,-2.853 L-5.983,-3.150 L-6.937,-0.012 L-5.985,0.253 L-5.460,-0.044 L-5.163,-0.868 L-4.796,-0.761 L-4.842,-0.591 L-5.058,-0.649 L-5.266,0.163 L-5.324,0.714 L-5.163,0.749 L-5.216,0.947 L-5.547,0.876 L-5.476,0.201 L-5.958,0.474 L-7.194,0.129 L-6.120,-3.406ZM-1.627,0.125 L-1.622,0.107 L-0.567,0.378 L-0.568,0.410ZM-1.259,2.437 L-0.877,2.488 L-0.879,2.532ZM-2.224,0.109 L-2.224,0.109 L-2.202,0.026Z" fill-rule="evenodd"/><path class="demo" d="M-0.526,0.421 L-0.570,0.585 L-1.715,0.278 L-1.671,0.114Z"/><path class="new" d="M-0.419,0.494 L-0.549,0.491 L-0.507,-1.799 L-0.377,-1.797Z"/><line class="door" x1="-4.811" y1="-0.706" x2="-4.62" y2="-1.406"/><line class="door" x1="-2.764" y1="-0.122" x2="-2.616" y2="-0.684"/><line class="door" x1="-2.202" y1="0.026" x2="-2.054" y2="-0.536"/><line class="door" x1="-5.171" y1="0.779" x2="-4.97" y2="0.015"/><line class="door" x1="-0.601" y1="0.79" x2="0.226" y2="0.811"/><line class="door" x1="-0.633" y1="1.829" x2="0.088" y2="1.85"/><line class="door" x1="-1.566" y1="2.592" x2="-1.757" y2="3.356"/><text x="-4.993" y="-2.0" class="rn">Cozinha</text><text x="-4.993" y="-1.58" class="ra">9,01 m²</text><text x="0.309" y="-2.563" class="rn">Sala de estar</text><text x="0.309" y="-2.1430000000000002" class="ra">26,20 m²</text><text x="-3.545" y="0.435" class="rn">Hall</text><text x="-3.545" y="0.855" class="ra">4,82 m²</text><text x="-1.215" y="1.187" class="rn sm">Circ.</text><text x="-1.215" y="1.487" class="ra sm">1,82 m²</text><text x="-0.748" y="4.033" class="rn">Banho</text><text x="-0.748" y="4.453" class="ra">4,79 m²</text><text x="2.035" y="0.131" class="rn">Quarto 1</text><text x="2.035" y="0.5509999999999999" class="ra">15,16 m²</text><text x="2.289" y="3.694" class="rn">Quarto 2</text><text x="2.289" y="4.114" class="ra">12,21 m²</text></svg></div>
@@ -307,7 +355,7 @@ footer span{font-size:13px;display:block;word-break:break-word}
 </div></section>
 
 <section class="block" id="orcamento"><div class="wrap">
-  <div class="shead"><span class="eyebrow">03 · Orçamento detalhado</span><h2>18 artigos em 5 capítulos</h2>
+  <div class="shead"><span class="eyebrow">04 · Orçamento detalhado</span><h2>18 artigos em 5 capítulos</h2>
   <p>Descrição completa de cada trabalho, com unidade, quantidade, preço unitário e total. Valores em euros, sem IVA.</p></div>
   <section class="cap" id="cap01"><header><span class="code">Cap. 01</span><h3>Demolições, Remoções e Transporte de Resíduos</h3><span class="ct">4 290,00 €</span></header>
 <div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
@@ -350,8 +398,8 @@ footer span{font-size:13px;display:block;word-break:break-word}
   <p class="note" style="text-align:right">Quantidades aproximadas, sujeitas a confirmação em obra.</p>
 </div></section>
 
-<section class="block" id="resumo"><div class="wrap">
-  <div class="shead"><span class="eyebrow">04 · Resumo e pagamento</span><h2>Investimento por capítulo e plano de pagamentos</h2></div>
+<section class="block alt" id="resumo"><div class="wrap">
+  <div class="shead"><span class="eyebrow">05 · Resumo e pagamento</span><h2>Investimento por capítulo e plano de pagamentos</h2></div>
   <div class="two">
     <div class="card"><h3>Valores por capítulo</h3><div class="bar"><span class="code">Cap. 01</span><span class="bn">Demolições, Remoções e Transporte de Resíduos</span>
 <span class="track"><i style="width:23.8%"></i></span><span class="pct">23.8%</span><span class="v">4 290,00 €</span></div><div class="bar"><span class="code">Cap. 02</span><span class="bn">Trabalhos de Preparação, Massas e Regularização</span>
@@ -379,7 +427,7 @@ footer span{font-size:13px;display:block;word-break:break-word}
 </div></section>
 
 <section class="block" id="cronograma"><div class="wrap">
-  <div class="shead"><span class="eyebrow">05 · Cronograma</span><h2>Sequência dos trabalhos</h2>
+  <div class="shead"><span class="eyebrow">06 · Cronograma</span><h2>Sequência dos trabalhos</h2>
   <p>Planeamento previsional em dias úteis, com as prestações ligadas ao avanço da obra. A data de início é definida na adjudicação.</p></div>
   <div class="card gantt"><div class="gin">
     <div class="g-head"><span>Art.</span><span>Tarefa</span><span>Dias</span><div class="g-weeks"><span>Sem. 1</span><span>Sem. 2</span><span>Sem. 3</span><span>Sem. 4</span><span>Sem. 5</span></div></div>
@@ -412,8 +460,8 @@ footer span{font-size:13px;display:block;word-break:break-word}
   <p class="note" style="max-width:60ch;margin:0">Os prazos não contam feriados e podem ser ajustados com a entrega dos materiais escolhidos pelo cliente, com trabalhos a mais ou com regras do condomínio.</p></div>
 </div></section>
 
-<section class="block" id="caderno"><div class="wrap">
-  <div class="shead"><span class="eyebrow">06 · Caderno de encargos</span><h2>Condições técnicas e contratuais</h2></div>
+<section class="block alt" id="caderno"><div class="wrap">
+  <div class="shead"><span class="eyebrow">07 · Caderno de encargos</span><h2>Condições técnicas e contratuais</h2></div>
   <div class="card objeto"><span class="eyebrow">2 · Objeto</span><p style="margin-top:8px">O presente Caderno de Encargos define as condições técnicas e contratuais a que obedece a execução da empreitada de remodelação do apartamento, compreendendo demolições e remoções na cozinha, sala, hall e casa de banho, trabalhos de estuque e barramento, execução de paredes e tetos em gesso cartonado, canalização da cozinha e casa de banho, abertura e fecho de roços com assentamento de caixa, remodelação completa da casa de banho, aplicação de rodapé e pavimento vinílico e pintura de tetos e paredes, conforme descrito no Orçamento e na Planta de Alterações.</p></div>
   <div class="two" style="margin-top:20px">
     <div class="card" style="padding:20px"><h3>3 · Condições gerais</h3><ul class="terms"><li><span class='art'>3.1</span><p>Os trabalhos serão executados de acordo com as boas regras da arte, as normas técnicas e regulamentos em vigor e as indicações dos fabricantes dos materiais aplicados.</p></li><li><span class='art'>3.2</span><p>Todos os materiais a aplicar serão novos, de primeira qualidade e adequados ao fim a que se destinam. Qualquer substituição de materiais será previamente acordada com o Dono de Obra.</p></li><li><span class='art'>3.3</span><p>O Empreiteiro cumprirá as regras de segurança e saúde no trabalho (Decreto-Lei n.º 273/2003), garantindo a utilização de equipamentos de proteção individual e coletiva adequados a cada tarefa.</p></li><li><span class='art'>3.4</span><p>Os resíduos resultantes das demolições e remoções serão recolhidos, transportados e encaminhados para contentor ou vazadouro devidamente autorizado, conforme previsto no Orçamento.</p></li><li><span class='art'>3.5</span><p>O Empreiteiro manterá a obra limpa e arrumada durante a execução e procederá à limpeza geral no final dos trabalhos.</p></li><li><span class='art'>3.6</span><p>Quaisquer trabalhos a mais ou alterações ao previsto no Orçamento serão orçamentados à parte e só executados após aprovação prévia do Dono de Obra.</p></li><li><span class='art'>3.7</span><p>Compete ao Dono de Obra obter eventuais licenças ou comunicações prévias junto da Câmara Municipal e autorização do condomínio, salvo acordo em contrário.</p></li><li><span class='art'>3.8</span><p>Os trabalhos executados beneficiam das garantias previstas na legislação em vigor, não abrangendo danos resultantes de má utilização ou falta de manutenção.</p></li></ul></div>
@@ -427,7 +475,7 @@ footer span{font-size:13px;display:block;word-break:break-word}
 </div></section>
 
 <section class="block" id="aceitacao"><div class="wrap">
-  <div class="shead"><span class="eyebrow">07 · Aceitação e adjudicação</span><h2>Declaração do cliente</h2></div>
+  <div class="shead"><span class="eyebrow">08 · Aceitação e adjudicação</span><h2>Declaração do cliente</h2></div>
   <div class="card accept">
     <p>O valor global da empreitada é de <strong>18 055,00 €</strong> (sem IVA), acrescido de IVA à taxa de 6% (1 083,30 €), totalizando <strong>19 138,30 €</strong>. Os pagamentos são feitos por transferência bancária, conforme o plano de pagamentos.</p>
     <p>Ao assinar o presente documento, o Cliente declara que:</p>
@@ -549,5 +597,10 @@ renderer.setAnimationLoop(now=>{ if(!visible) return; tween&&tween(now); control
   function onScroll(){ const h=document.documentElement, max=h.scrollHeight-h.clientHeight; prog.style.width=(max>0?h.scrollTop/max*100:0)+'%'; top.hidden=h.scrollTop<800; }
   addEventListener('scroll',onScroll,{passive:true}); onScroll();
   top.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+})();
+</script>
+<script>
+(function(){const c=document.getElementById('cmp'),r=document.getElementById('cmpr');if(!c)return;
+  const set=v=>c.style.setProperty('--pos',v+'%'); r.addEventListener('input',()=>set(r.value));
 })();
 </script>
