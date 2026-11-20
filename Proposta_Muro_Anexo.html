@@ -63,7 +63,9 @@ p{margin:0}
 .meta div{background:var(--navy);padding:14px 16px;display:grid;gap:4px}
 .meta span{font:500 10px/1 var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted)}
 .meta strong{font-size:17px;color:var(--on-navy)}
-.meta .big strong{font-size:24px}
+.meta{grid-template-columns:1.6fr repeat(4,minmax(150px,1fr))}
+@media (max-width:900px){.meta{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+.meta .big strong{font-size:clamp(30px,4vw,40px);letter-spacing:-.01em}
 .cover-strip{height:6px;background:var(--accent)}
 
 /* nav */
@@ -275,8 +277,8 @@ footer span{font-size:13px;display:block;word-break:break-word}
       <div class="hero-sum"><div class="hs-h"><span>Resumo por capítulo</span><span>s/ IVA</span></div><div class="hs-r"><span><b>01</b>Muros e Vedações</span><span>3 057,80 €</span></div><div class="hs-r"><span><b>02</b>Anexo — Estrutura, Alvenarias e Cobertura</span><span>4 822,00 €</span></div><div class="hs-r"><span><b>03</b>Pavimentos Exteriores e Drenagem</span><span>5 371,90 €</span></div><div class="hs-r"><span><b>04</b>Instalação Elétrica</span><span>1 355,00 €</span></div><div class="hs-r"><span><b>05</b>Pinturas e Acabamentos</span><span>810,00 €</span></div><div class="hs-t"><span>Total dos trabalhos</span><span>15 416,70 €</span></div></div>
     </div>
     <div class="meta">
-      <div class="big"><span>Investimento total</span><strong>18 962,54 €</strong></div>
-      <div><span>Valor dos trabalhos</span><strong>15 416,70 € + IVA 23%</strong></div>
+      <div class="big"><span>Valor dos trabalhos · sem IVA</span><strong>15 416,70 €</strong></div>
+      <div><span>Total com IVA 23%</span><strong>18 962,54 €</strong></div>
       <div><span>Prazo previsto</span><strong>4 semanas · 20 dias úteis</strong></div>
       <div><span>Pavimento exterior</span><strong>43,70 m²</strong></div>
       <div><span>Validade</span><strong>30 dias</strong></div>
