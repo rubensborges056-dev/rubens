@@ -280,6 +280,19 @@ footer{margin-top:64px;background:var(--navy);color:var(--on-navy-muted)}
 footer .wrap{padding-block:32px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 footer strong{color:var(--on-navy);display:block;margin-bottom:4px}
 footer span{font-size:13px;display:block;word-break:break-word}
+
+/* HTML: tudo em coluna única (um abaixo do outro) */
+@media screen{
+  .hero{grid-template-columns:1fr!important}
+  .meta{grid-template-columns:1fr!important}
+  .changes{grid-template-columns:1fr!important}
+  .pair,.refs3{grid-template-columns:1fr!important;height:auto!important}
+  .pair figure{height:clamp(320px,60vw,560px)}
+  .refs3 figure{height:clamp(280px,50vw,460px)}
+  .two{grid-template-columns:1fr!important}
+  .sign{grid-template-columns:1fr!important}
+  footer .wrap{grid-template-columns:1fr!important}
+}
 </style>
 
 <header class="cover">
