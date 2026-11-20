@@ -153,7 +153,8 @@ table{border-collapse:collapse;width:100%}
 .bar .track{grid-area:t;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
 .bar .track i{display:block;height:100%;background:var(--accent);border-radius:4px}
 .bar .pct{grid-area:p;font:500 12px var(--font-m);color:var(--muted)}
-.paytab{min-width:460px}
+.paytab{min-width:540px}
+.paytab .ptot td{font-weight:700;color:var(--ink);border-bottom:0;border-top:2px solid var(--ink)}
 .paytab th{font:500 10px/1 var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
 .paytab th.n{text-align:right}
 .paytab td{padding:12px 8px;border-bottom:1px solid var(--line);font-size:14px}
@@ -359,7 +360,7 @@ footer span{font-size:13px;display:block;word-break:break-word}
       <div class="totals" style="max-width:none"><div><span>Subtotal</span><span>15 416,70 €</span></div><div><span>IVA 23%</span><span>3 545,84 €</span></div><div class="grand"><span>TOTAL</span><span>18 962,54 €</span></div></div>
     </div>
     <div class="card"><h3>Plano de pagamentos</h3>
-      <div style="overflow-x:auto"><table class="paytab"><thead><tr><th>Fase</th><th>Momento</th><th class="n">%</th><th class="n">S/ IVA</th><th class="n">C/ IVA</th></tr></thead><tbody><tr><td class="art">1.ª</td><td>Adjudicação da obra</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">2.ª</td><td>Com 40% dos trabalhos executados</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">3.ª</td><td>Com 70% dos trabalhos executados</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">4.ª</td><td>Conclusão e entrega da obra</td><td class="n">10%</td><td class="n">1 541,67 €</td><td class="n b">1 896,25 €</td></tr></tbody></table></div>
+      <div style="overflow-x:auto"><table class="paytab"><thead><tr><th>Fase</th><th>Momento</th><th class="n">%</th><th class="n">S/ IVA</th><th class="n">IVA 23%</th><th class="n">C/ IVA</th></tr></thead><tbody><tr><td class="art">1.ª</td><td>Adjudicação da obra</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n">1 063,75 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">2.ª</td><td>Com 40% dos trabalhos executados</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n">1 063,75 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">3.ª</td><td>Com 70% dos trabalhos executados</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n">1 063,75 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">4.ª</td><td>Conclusão e entrega da obra</td><td class="n">10%</td><td class="n">1 541,67 €</td><td class="n">354,59 €</td><td class="n b">1 896,26 €</td></tr><tr class="ptot"><td></td><td>Total</td><td class="n">100%</td><td class="n">15 416,70 €</td><td class="n">3 545,84 €</td><td class="n b">18 962,54 €</td></tr></tbody></table></div>
       <div class="bank">
         <div><span>Titular</span><strong>Parâmetro Imaginário Unipessoal Lda</strong></div>
         <div><span>NIF</span><strong>518526739</strong></div>
