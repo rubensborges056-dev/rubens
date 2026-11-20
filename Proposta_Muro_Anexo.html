@@ -257,6 +257,15 @@ summary .cnt{font:500 11px var(--font-m);color:var(--muted)}
 .block.alt .card,.block.alt details,.block.alt .gallery figure{background:var(--bg)}
 .block.alt{border-block:1px solid var(--line);padding-bottom:56px;margin-top:48px}
 /* referências */
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;height:clamp(320px,52vw,560px)}
+.refs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px;height:300px}
+.pair figure,.refs3 figure{position:relative;margin:0;border-radius:14px;overflow:hidden;background:var(--soft)}
+.pair img,.refs3 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.pair figure:hover img,.refs3 figure:hover img{transform:scale(1.03)}
+.pair figcaption,.refs3 figcaption{position:absolute;left:0;right:0;bottom:0;padding:32px 16px 14px;background:linear-gradient(transparent,rgba(7,16,30,.85));color:#fff;font-size:14px;display:grid;gap:6px;justify-items:start}
+.pair .tag2{font-size:12px;padding:6px 10px}
+@media (prefers-reduced-motion:reduce){.pair img,.refs3 img{transition:none}.pair figure:hover img,.refs3 figure:hover img{transform:none}}
+@media (max-width:640px){.pair{grid-template-columns:1fr;height:auto}.pair figure{height:340px}.refs3{grid-template-columns:1fr;height:auto}.refs3 figure{height:260px}}
 .refs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:260px;gap:12px}
 .refs figure{position:relative;margin:0;border-radius:14px;overflow:hidden;background:var(--soft)}
 .refs img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
@@ -331,9 +340,11 @@ footer span{font-size:13px;display:block;word-break:break-word}
 <section class="block alt" id="referencias"><div class="wrap">
   <div class="shead"><span class="eyebrow">01 · Trabalhos de referência</span><h2>Um anexo que já construímos</h2>
   <p>Construção de anexo em alvenaria com cozinha exterior, churrasqueira em tijolo, cobertura em telha com estrutura de madeira à vista e caixilharia em PVC. Do tijolo ao acabamento final, executado pela nossa equipa.</p></div>
-  <div class="refs">
-    <figure class="r-main"><img src="img/ref/exterior-1.jpg" alt="Anexo concluído visto do pátio, com cobertura em telha e portas de vidro" width="1400" height="1050"><figcaption><span class="tag2">Obra concluída</span>Exterior do anexo com cobertura em telha e portas de correr</figcaption></figure>
-    <figure><img src="img/ref/em-obra.jpg" alt="Anexo em construção, paredes em tijolo" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2 obra">Em obra</span>Paredes em alvenaria de tijolo</figcaption></figure>
+  <div class="pair">
+    <figure><img src="img/ref/em-obra.jpg" alt="Anexo em construção, paredes em tijolo" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2 obra">Antes · em obra</span>Paredes em alvenaria de tijolo</figcaption></figure>
+    <figure><img src="img/ref/exterior-1.jpg" alt="Anexo concluído visto do pátio, com cobertura em telha e portas de vidro" width="1400" height="1050" loading="lazy"><figcaption><span class="tag2">Obra concluída</span>Exterior do anexo com cobertura em telha e portas de correr</figcaption></figure>
+  </div>
+  <div class="refs3">
     <figure><img src="img/ref/cozinha.jpg" alt="Cozinha exterior com churrasqueira em tijolo e teto com vigas de madeira" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2">Interior</span>Cozinha com churrasqueira e salamandra</figcaption></figure>
     <figure><img src="img/ref/interior.jpg" alt="Interior do anexo com teto em madeira e claraboias" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2">Interior</span>Teto com vigas em madeira e iluminação</figcaption></figure>
     <figure><img src="img/ref/exterior-2.jpg" alt="Entrada do anexo com terraço e guarda metálica" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2">Exterior</span>Terraço, guarda e caixilharia</figcaption></figure>
