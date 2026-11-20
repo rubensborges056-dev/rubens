@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Proposta Muro e Anexo</title>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a builder's proposal dossier — navy cover band, sticky section index, then numbered chapters like a bill of quantities */
+:root{
+  --bg:#F5F7FB; --surface:#FFFFFF; --ink:#0B1F3A; --text:#2A3548; --muted:#5E6B80; --line:#DCE2EC; --soft:#EEF2F8;
+  --accent:#1F4FD1; --accent-ink:#FFFFFF; --navy:#0B1F3A; --on-navy:#FFFFFF; --on-navy-muted:#B7C6EA;
+  --demo:#D62828; --demo-bg:#FFE3E3; --new:#1F9A47;
+  --r-def:#EEF1F6; --r-sala:#E3EBFD; --r-coz:#FFF1D6; --r-wc:#DDF2F5; --wall:#1C2533;
+  --stage:#E6EBF3;
+  --font-d:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A1220; --surface:#111C2E; --ink:#EAF0FA; --text:#C9D3E3; --muted:#8E9CB3; --line:#24324A; --soft:#16233A;
+  --accent:#7398FF; --accent-ink:#0A1220; --navy:#07101E; --on-navy:#FFFFFF; --on-navy-muted:#9FB2DA;
+  --demo:#FF6161; --demo-bg:#3A1A1F; --new:#3FCB6B;
+  --r-def:#1A2840; --r-sala:#1B2C52; --r-coz:#3A3020; --r-wc:#16363B; --wall:#C9D3E3;
+  --stage:#0E1828; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1220; --surface:#111C2E; --ink:#EAF0FA; --text:#C9D3E3; --muted:#8E9CB3; --line:#24324A; --soft:#16233A;
+  --accent:#7398FF; --accent-ink:#0A1220; --navy:#07101E; --on-navy:#FFFFFF; --on-navy-muted:#9FB2DA;
+  --demo:#FF6161; --demo-bg:#3A1A1F; --new:#3FCB6B;
+  --r-def:#1A2840; --r-sala:#1B2C52; --r-coz:#3A3020; --r-wc:#16363B; --wall:#C9D3E3;
+  --stage:#0E1828; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text);font:400 15px/1.6 var(--font-d)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+.mono,.code,.art{font-family:var(--font-m)}
+.eyebrow{font:500 11px/1 var(--font-m);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.c{text-align:center}
+.b{font-weight:700;color:var(--ink)}
+
+/* cover */
+.cover{background:var(--navy);color:var(--on-navy)}
+.cover{position:relative;overflow:hidden;background:radial-gradient(1200px 500px at 85% -10%,rgba(31,79,209,.35),transparent 60%),var(--navy)}
+.cover::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.cover .wrap{position:relative;z-index:1;padding-block:40px 40px;display:grid;gap:28px}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.hero-sum{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:8px 20px 4px;backdrop-filter:blur(4px)}
+.hs-h,.hs-r,.hs-t{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.hs-h{font:500 10px var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted)}
+.hs-r span:first-child{color:#fff;font-size:14px}.hs-r span:first-child b{font:500 11px var(--font-m);color:var(--on-navy-muted);margin-right:8px;font-weight:500}
+.hs-r span:last-child,.hs-t span:last-child{font:500 14px var(--font-m);color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.hs-t{border:0;font-weight:800;color:#fff}
+.hs-h .siva{font:700 16px var(--font-d);letter-spacing:.04em;color:#fff;background:var(--accent);padding:5px 12px;border-radius:999px;text-transform:none}
+.hs-h{align-items:center}
+.hs-iva{border-top:1px solid rgba(255,255,255,.18)}
+.hs-iva span:first-child{color:var(--on-navy-muted)!important}
+.hs-tot{background:rgba(255,255,255,.08);margin:6px -20px 0;padding:14px 20px;border-radius:0 0 16px 16px}.hs-t span:last-child{font-size:17px;font-weight:700}
+.hero-img{margin:0;background:#EEF0F3;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}
+.hero-img img{display:block;width:100%;height:auto}
+.hero-img figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;background:rgba(7,16,30,.92);color:var(--on-navy-muted);font:500 11px var(--font-m);letter-spacing:.08em;text-transform:uppercase}
+.hero-img figcaption b{color:#fff;font-weight:500}
+.brand{display:flex;align-items:center;gap:14px;font:700 13px var(--font-d);letter-spacing:.08em;text-transform:uppercase;color:var(--on-navy-muted)}
+.brand img{width:64px;height:auto}
+.cover h1{color:var(--on-navy);font-size:clamp(34px,6vw,58px);font-weight:800;letter-spacing:-.02em}
+.cover .lead{font-size:clamp(16px,2.2vw,19px);color:var(--on-navy-muted);margin-top:10px;max-width:60ch}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.meta div{background:var(--navy);padding:14px 16px;display:grid;gap:4px}
+.meta span{font:500 10px/1 var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted)}
+.meta strong{font-size:17px;color:var(--on-navy)}
+.meta{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.meta{grid-template-columns:1fr}}
+.meta .big strong{font-size:clamp(30px,4vw,40px);letter-spacing:-.01em}
+.cover-strip{height:6px;background:var(--accent)}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--surface)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:10px}
+nav.toc .wrap::-webkit-scrollbar{display:none}
+nav.toc a{flex:none;text-decoration:none;color:var(--muted);font:600 13px var(--font-d);padding:7px 12px;border-radius:999px;white-space:nowrap}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--soft);color:var(--ink);outline:none}
+nav.toc a .k{font-family:var(--font-m);color:var(--accent);margin-right:6px;font-size:11px}
+
+/* sections */
+main section.block{padding-block:56px 8px}
+.shead{display:grid;gap:8px;margin-bottom:24px}
+.shead h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;letter-spacing:-.01em}
+.shead p{color:var(--muted);max-width:68ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+
+/* 3D */
+.viewer{position:relative;height:min(72vh,620px);min-height:420px;border-radius:14px;overflow:hidden;background:var(--stage);border:1px solid var(--line)}
+.viewer canvas{display:block;width:100%;height:100%;touch-action:none}
+.vctl{position:absolute;top:12px;left:12px;right:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;pointer-events:none}
+.vctl > *{pointer-events:auto}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.seg button{font:600 13px var(--font-d);border:0;border-radius:7px;padding:8px 12px;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.vleg{position:absolute;left:12px;bottom:12px;display:flex;flex-wrap:wrap;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--text)}
+.vleg span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:16px;height:10px;border-radius:2px;display:inline-block}
+.vhint{position:absolute;right:12px;bottom:12px;font:500 11px var(--font-m);color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:6px 10px;border-radius:8px}
+@media (max-width:640px){.vhint{display:none}.seg button{padding:7px 9px;font-size:12px}}
+
+/* planta */
+.plan{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px}
+@media (max-width:820px){.plan{grid-template-columns:1fr}}
+.plan .card{padding:16px}
+.plan svg{width:100%;height:auto;display:block}
+.plan .wall{fill:var(--wall)}
+.plan .demo{fill:var(--demo-bg);stroke:var(--demo);stroke-width:.05;stroke-dasharray:.12 .07}
+.plan .new{fill:var(--new)}
+.plan .door{stroke:var(--muted);stroke-width:.03}
+.plan .rn{font:800 .3px var(--font-d);fill:var(--ink);text-anchor:middle}
+.plan .ra{font:500 .25px var(--font-m);fill:var(--accent);text-anchor:middle}
+.plan .rn.sm{font-size:.18px}.plan .ra.sm{font-size:.15px}
+.alist{display:grid}
+.alist div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.alist div span:last-child{font-family:var(--font-m);color:var(--muted);font-variant-numeric:tabular-nums}
+.alist .tot{border:0;font-weight:800;color:var(--ink)}
+.alist .tot span:last-child{color:var(--ink)}
+.legend{display:grid;gap:8px;margin-top:18px;font-size:13px}
+.legend span{display:flex;align-items:center;gap:10px}
+.note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+
+/* orçamento */
+.cap{margin-bottom:22px}
+.cap header{display:flex;align-items:baseline;gap:14px;padding:14px 18px;background:var(--soft);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;flex-wrap:wrap}
+.cap header .code{font-size:12px;color:var(--accent);font-weight:500}
+.cap header h3{font-size:17px;font-weight:800;flex:1 1 220px}
+.cap header .ct{font:700 15px var(--font-m);color:var(--ink);font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:0 0 14px 14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%}
+.items{min-width:680px}
+.items th{font:500 10px/1 var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
+.items th.n{text-align:right}.items th.c{text-align:center}
+.items td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
+.items td strong{color:var(--ink);font-weight:700}
+.items td p{color:var(--muted);font-size:13px;margin-top:4px;max-width:62ch;line-height:1.55}
+.items td.art{color:var(--accent);font-size:13px;width:56px}
+.items tfoot td{border:0;font-weight:700;color:var(--ink);text-align:right;padding:12px 14px}
+.items tfoot td:last-child{font-family:var(--font-m)}
+.totals{margin-left:auto;max-width:420px;display:grid;margin-top:8px}
+.totals div{display:flex;justify-content:space-between;padding:10px 18px;font-size:15px}
+.totals div span:last-child{font-family:var(--font-m);font-variant-numeric:tabular-nums}
+.totals .grand{background:var(--navy);color:var(--on-navy);border-radius:12px;padding:16px 18px;margin-top:6px}
+.totals .grand span:first-child{font-weight:800;letter-spacing:.04em}
+.totals .grand span:last-child{font-size:22px;font-weight:700;color:var(--on-navy)}
+
+/* resumo */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.two .card{padding:20px}
+.card h3{font-size:16px;font-weight:800;margin-bottom:14px}
+.bar{display:grid;grid-template-columns:60px minmax(0,1fr) auto;grid-template-areas:"c n v" "t t p";gap:6px 10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}
+.bar .code{grid-area:c;font-size:11px;color:var(--accent)}
+.bar .bn{grid-area:n;font-size:14px;color:var(--ink)}
+.bar .v{grid-area:v;font:600 14px var(--font-m);color:var(--ink);font-variant-numeric:tabular-nums}
+.bar .track{grid-area:t;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
+.bar .track i{display:block;height:100%;background:var(--accent);border-radius:4px}
+.bar .pct{grid-area:p;font:500 12px var(--font-m);color:var(--muted)}
+.paytab{min-width:540px}
+.paytab .ptot td{font-weight:700;color:var(--ink);border-bottom:0;border-top:2px solid var(--ink)}
+.paytab th{font:500 10px/1 var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+.paytab th.n{text-align:right}
+.paytab td{padding:12px 8px;border-bottom:1px solid var(--line);font-size:14px}
+.paytab td.art{color:var(--accent)}
+.bank{display:grid;gap:10px;margin-top:18px;padding:16px;background:var(--soft);border-radius:10px}
+.bank div{display:grid;gap:2px}
+.bank span{font:500 10px var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bank strong{color:var(--ink);font-family:var(--font-m);font-weight:500;word-break:break-word}
+.bullets{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:13px;color:var(--muted)}
+.bullets li{padding-left:16px;position:relative}
+.bullets li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+/* gantt */
+.gantt{overflow-x:auto}
+.gin{min-width:820px;padding:8px 18px 18px}
+.g-head,.g-row{display:grid;grid-template-columns:72px 300px 56px minmax(0,1fr);gap:10px;align-items:center}
+.g-head{font:500 10px var(--font-m);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 0;border-bottom:1px solid var(--line)}
+.g-weeks{display:grid;grid-template-columns:repeat(4,1fr)}
+.g-weeks span{border-left:1px solid var(--line);padding-left:6px}
+.g-row{padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
+.g-art{font:500 12px var(--font-m);color:var(--accent)}
+.g-name{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.g-d{font:500 11px var(--font-m);color:var(--muted)}
+.g-track{position:relative;height:18px;background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/25% 100%}
+.g-track i{position:absolute;top:3px;bottom:3px;background:var(--accent);border-radius:4px}
+.g-track b{position:absolute;top:2px;width:14px;height:14px;background:var(--ink);transform:rotate(45deg)}
+.g-row.ms .g-name{font-weight:700;font-style:italic}
+.g-ph{padding:12px 0 6px;font-weight:800;color:var(--ink);font-size:13px;display:flex;gap:10px;border-bottom:1px solid var(--line)}
+.g-ph .code{color:var(--accent);font-size:11px;font-weight:500}
+.gsum{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:16px;align-items:baseline}
+.gsum strong{font-size:26px;color:var(--ink)}
+
+/* caderno */
+.terms{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.terms li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.terms .art{color:var(--accent);font-size:13px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+summary{cursor:pointer;list-style:none;padding:14px 18px;display:flex;gap:12px;align-items:baseline;font-weight:800;color:var(--ink);flex-wrap:wrap}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font:500 18px var(--font-m);color:var(--accent)}
+details[open] summary::after{content:"–"}
+summary .code{font-size:12px;color:var(--accent);font-weight:500}
+summary .cnt{font:500 11px var(--font-m);color:var(--muted)}
+.spec{list-style:none;margin:0;padding:0 18px 8px}
+.spec li{display:grid;grid-template-columns:44px minmax(0,1fr) 36px;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.spec strong{color:var(--ink);font-size:14px}
+.spec p{font-size:13px;color:var(--muted);margin-top:4px}
+.spec .art{color:var(--accent);font-size:13px}
+.spec .un{font:500 12px var(--font-m);color:var(--muted);text-align:right}
+.objeto{padding:20px;font-size:15px}
+
+/* aceitação */
+.accept{padding:24px;display:grid;gap:18px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{padding-left:28px;position:relative;font-size:14px}
+.checks li::before{content:"✓";position:absolute;left:0;top:0;color:var(--accent);font-weight:800}
+.callout{background:var(--soft);border-radius:10px;padding:14px 16px;font-weight:700;color:var(--ink);text-align:center}
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px}
+.sign div{border:1px dashed var(--line);border-radius:12px;padding:18px;display:grid;gap:6px;min-height:150px;align-content:end}
+.sign .who{font:500 10px var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.sign .line{border-bottom:1px solid var(--ink);height:56px}
+.sign strong{color:var(--ink)}
+.sign small{color:var(--muted)}
+
+/* resumo de alterações */
+.changes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+.chg{display:grid;gap:6px;align-content:start;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;transition:border-color .2s,transform .2s}
+.chg:hover,.chg:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
+@media (prefers-reduced-motion:reduce){.chg{transition:none}.chg:hover{transform:none}}
+.chg .art{font-size:11px;color:var(--accent);letter-spacing:.06em}
+.chg .big{font:800 26px/1.1 var(--font-d);color:var(--ink);letter-spacing:-.01em}
+.chg h3{font-size:15px;font-weight:700;margin-top:2px}
+.chg p{font-size:13px;color:var(--muted);line-height:1.5}
+.chg .val{margin-top:6px;font:600 13px var(--font-m);color:var(--ink);display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px}
+.chg .val i{font-style:normal;color:var(--accent)}
+/* como vai ficar */
+.compare{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#EEF0F3;aspect-ratio:1400/875;max-width:100%;user-select:none;touch-action:pan-y}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.compare .after{clip-path:inset(0 0 0 var(--pos,50%))}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(11,31,58,.25);transform:translateX(-1px);pointer-events:none}
+.compare .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#fff;font:700 13px var(--font-d);padding:9px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 16px rgba(11,31,58,.3)}
+.compare .tag{position:absolute;top:14px;font:600 11px var(--font-m);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:8px;background:rgba(11,31,58,.85);color:#fff}
+.compare .tag.l{left:14px}.compare .tag.r{right:14px;background:var(--accent)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare input:focus-visible + .handle::after{outline:3px solid #fff;outline-offset:2px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px;margin-top:16px}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gallery img{display:block;width:100%;height:auto;background:#EEF0F3}
+.gallery figcaption{padding:12px 16px;display:grid;gap:2px}
+.gallery figcaption strong{color:var(--ink);font-size:14px}
+.gallery figcaption span{color:var(--muted);font-size:13px}
+.block.alt{background:var(--surface);}
+.block.alt .card,.block.alt details,.block.alt .gallery figure{background:var(--bg)}
+.block.alt{border-block:1px solid var(--line);padding-bottom:56px;margin-top:48px}
+/* referências */
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;height:clamp(320px,52vw,560px)}
+.refs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px;height:300px}
+.pair figure,.refs3 figure{position:relative;margin:0;border-radius:14px;overflow:hidden;background:var(--soft)}
+.pair img,.refs3 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.pair figure:hover img,.refs3 figure:hover img{transform:scale(1.03)}
+.pair figcaption,.refs3 figcaption{position:absolute;left:0;right:0;bottom:0;padding:32px 16px 14px;background:linear-gradient(transparent,rgba(7,16,30,.85));color:#fff;font-size:14px;display:grid;gap:6px;justify-items:start}
+.tag2{font:600 10px var(--font-m);letter-spacing:.1em;text-transform:uppercase;background:#1F4FD1;color:#fff;padding:4px 8px;border-radius:6px}
+.tag2.obra{background:#B4532A}
+.pair .tag2{font-size:9.5px;padding:4px 8px}
+@media (prefers-reduced-motion:reduce){.pair img,.refs3 img{transition:none}.pair figure:hover img,.refs3 figure:hover img{transform:none}}
+@media (max-width:640px){.pair{grid-template-columns:1fr;height:auto}.pair figure{height:340px}.refs3{grid-template-columns:1fr;height:auto}.refs3 figure{height:260px}}
+/* nav state */
+nav.toc a[aria-current="true"]{background:var(--accent);color:var(--accent-ink)}
+nav.toc a[aria-current="true"] .k{color:inherit}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--accent);width:0}
+.items tbody tr{transition:background-color .2s}
+.items tbody tr:hover{background:var(--soft)}
+.items tbody tr:target{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
+.totop{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:15;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:700 18px var(--font-d);cursor:pointer;box-shadow:0 6px 18px rgba(11,31,58,.15)}
+footer{margin-top:64px;background:var(--navy);color:var(--on-navy-muted)}
+footer .wrap{padding-block:32px;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+footer strong{color:var(--on-navy);display:block;margin-bottom:4px}
+footer span{font-size:13px;display:block;word-break:break-word}
+
+/* HTML: tudo em coluna única (um abaixo do outro) */
+@media screen{
+  .hero{grid-template-columns:1fr!important}
+  .meta{grid-template-columns:1fr!important}
+  .changes{grid-template-columns:1fr!important}
+  .pair,.refs3{grid-template-columns:1fr!important;height:auto!important}
+  .pair figure{height:clamp(320px,60vw,560px)}
+  .refs3 figure{height:clamp(280px,50vw,460px)}
+  .two{grid-template-columns:1fr!important}
+  .sign{grid-template-columns:1fr!important}
+  footer .wrap{grid-template-columns:1fr!important}
+}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brand"><img src="data:image/png;base64,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" alt="Logótipo Parâmetro Imaginário"><span>Parâmetro Imaginário Unipessoal Lda</span></div>
+    <div class="hero">
+      <div>
+        <div class="eyebrow" style="color:var(--on-navy-muted)">Proposta n.º PI-2026-002 · 20.11.2026</div>
+        <h1>Proposta de Orçamento</h1>
+        <p class="lead">Construção de muro em bloco de betão, anexo em alvenaria com laje impermeabilizada e novo pavimento exterior, preparada para a Sra. Marina · São Domingos de Rana.</p>
+      </div>
+      <div class="hero-sum"><div class="hs-h"><span>Resumo por capítulo</span><span class="siva">S/ IVA</span></div><div class="hs-r"><span><b>01</b>Muros e Vedações</span><span>3 057,80 €</span></div><div class="hs-r"><span><b>02</b>Anexo — Estrutura, Alvenarias e Cobertura</span><span>4 822,00 €</span></div><div class="hs-r"><span><b>03</b>Pavimentos Exteriores e Drenagem</span><span>5 371,90 €</span></div><div class="hs-r"><span><b>04</b>Instalação Elétrica</span><span>1 355,00 €</span></div><div class="hs-r"><span><b>05</b>Pinturas e Acabamentos</span><span>810,00 €</span></div><div class="hs-t"><span>Total dos trabalhos</span><span>15 416,70 €</span></div><div class="hs-r hs-iva"><span>IVA 23%</span><span>3 545,84 €</span></div><div class="hs-t hs-tot"><span>Total com IVA</span><span>18 962,54 €</span></div></div>
+    </div>
+    <div class="meta">
+      <div><span>Prazo previsto</span><strong>4 semanas · 20 dias úteis</strong></div>
+      <div><span>Pavimento exterior</span><strong>43,70 m²</strong></div>
+      <div><span>Início da obra</span><strong>Janeiro de 2027</strong></div>
+    </div>
+  </div>
+  <div class="cover-strip"></div>
+</header>
+
+<nav class="toc" aria-label="Secções da proposta">
+  <div class="progress" id="prog"></div>
+  <div class="wrap">
+    <a href="#resumo-obra"><span class="k">00</span>Em resumo</a>
+    <a href="#referencias"><span class="k">01</span>Referências</a>
+    <a href="#orcamento"><span class="k">02</span>Orçamento</a>
+    <a href="#resumo"><span class="k">03</span>Pagamento</a>
+    <a href="#cronograma"><span class="k">04</span>Cronograma</a>
+    <a href="#caderno"><span class="k">05</span>Caderno de encargos</a>
+    <a href="#aceitacao"><span class="k">06</span>Aceitação</a>
+  </div>
+</nav>
+
+<main>
+<section class="block" id="resumo-obra"><div class="wrap">
+  <div class="shead"><span class="eyebrow">00 · Em resumo</span><h2>O que vamos construir</h2>
+  <p>Os trabalhos principais da empreitada. Toque num cartão para ver o artigo no orçamento.</p></div>
+  <div class="changes"><a class="chg" href="#a-1-1"><span class="art">Art. 1.1</span><strong class="big">9 ml</strong>
+<h3>Muro novo em bloco de betão</h3><p>9 metros lineares com 2 pilares, viga de coroamento e reboco nas duas faces.</p><span class="val">2 264,00 € <i>→</i></span></a><a class="chg" href="#a-1-2"><span class="art">Art. 1.2</span><strong class="big">8,82 m²</strong>
+<h3>Fechamento do muro existente</h3><p>Painel sandwich em aço galvanizado de 50 mm na parte superior do muro.</p><span class="val">793,80 € <i>→</i></span></a><a class="chg" href="#a-2-1"><span class="art">Art. 2.1</span><strong class="big">23 m²</strong>
+<h3>Anexo em alvenaria</h3><p>Paredes em tijolo de 11 cm, rebocadas, com laje em vigas e abobadilhas.</p><span class="val">1 525,00 € <i>→</i></span></a><a class="chg" href="#a-2-4"><span class="art">Art. 2.4</span><strong class="big">Laje 13 m²</strong>
+<h3>Cobertura impermeabilizada</h3><p>Impermeabilização da laje do anexo com sistema de drenagem das águas.</p><span class="val">946,00 € <i>→</i></span></a><a class="chg" href="#a-3-4"><span class="art">Art. 3.4</span><strong class="big">43,7 m²</strong>
+<h3>Pavimento exterior novo</h3><p>Piso em betão armado, betonilha com pendentes e assentamento de cerâmico.</p><span class="val">1 748,00 € <i>→</i></span></a><a class="chg" href="#a-4-1"><span class="art">Art. 4.1</span><strong class="big">Instalação completa</strong>
+<h3>Instalação elétrica</h3><p>Tomadas, interruptores e pontos de luz de acordo com as RTIEBT.</p><span class="val">1 355,00 € <i>→</i></span></a></div>
+</div></section>
+
+<section class="block alt" id="referencias"><div class="wrap">
+  <div class="shead"><span class="eyebrow">01 · Trabalhos de referência</span><h2>Um anexo que já construímos</h2>
+  <p>Construção de anexo em alvenaria com cozinha exterior, churrasqueira em tijolo, cobertura em telha com estrutura de madeira à vista e caixilharia em PVC. Do tijolo ao acabamento final, executado pela nossa equipa.</p></div>
+  <div class="pair">
+    <figure><img src="img/ref/em-obra.jpg" alt="Anexo em construção, paredes em tijolo" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2 obra">Antes · em obra</span><span class="ph obra">Paredes em alvenaria de tijolo</span></figcaption></figure>
+    <figure><img src="img/ref/exterior-1.jpg" alt="Anexo concluído visto do pátio, com cobertura em telha e portas de vidro" width="1400" height="1050" loading="lazy"><figcaption><span class="tag2">Obra concluída</span><span class="ph">Exterior do anexo com cobertura em telha e portas de correr</span></figcaption></figure>
+  </div>
+  <div class="refs3">
+    <figure><img src="img/ref/cozinha.jpg" alt="Cozinha exterior com churrasqueira em tijolo e teto com vigas de madeira" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2">Interior</span><span class="ph">Cozinha com churrasqueira e salamandra</span></figcaption></figure>
+    <figure><img src="img/ref/interior.jpg" alt="Interior do anexo com teto em madeira e claraboias" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2">Interior</span><span class="ph">Teto com vigas em madeira e iluminação</span></figcaption></figure>
+    <figure><img src="img/ref/exterior-2.jpg" alt="Entrada do anexo com terraço e guarda metálica" width="1050" height="1400" loading="lazy"><figcaption><span class="tag2">Exterior</span><span class="ph">Terraço, guarda e caixilharia</span></figcaption></figure>
+  </div>
+  <p class="note">Mais trabalhos no Instagram <strong>@parametroimaginario</strong> e em <strong>www.parametroimaginario.pt</strong>.</p>
+</div></section>
+
+<section class="block" id="orcamento"><div class="wrap">
+  <div class="shead"><span class="eyebrow">02 · Orçamento detalhado</span><h2>12 artigos em 5 capítulos</h2>
+  <p>Descrição completa de cada trabalho, com unidade, quantidade, preço unitário e total. Valores em euros, sem IVA.</p></div>
+  <section class="cap" id="cap01"><header><span class="code">Cap. 01</span><h3>Muros e Vedações</h3><span class="ct">3 057,80 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr id="a-1-1"><td class="art">1.1</td><td><strong>Fornecimento e Execução de Muro em Bloco de Betão</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução de muro em bloco de betão de 50 × 20 × 20 cm, ao longo de 9 metros lineares, incluindo 2 pilares de 20 × 20 cm e viga de coroamento com 20 cm de largura. Inclui mão de obra e aplicação de reboco em ambas as faces do muro.</p></td>
+<td class="c">M2</td><td class="n">20</td><td class="n">113,20 €</td><td class="n b">2 264,00 €</td></tr><tr id="a-1-2"><td class="art">1.2</td><td><strong>Fechamento sobre Muro Existente com Painel Sandwich</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução de fechamento na parte superior do muro existente, em painel sandwich de aço galvanizado com 50 mm de espessura, incluindo estrutura de fixação, remates e respetiva mão de obra.</p></td>
+<td class="c">M2</td><td class="n">8,82</td><td class="n">90,00 €</td><td class="n b">793,80 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 01</td><td class="n b">3 057,80 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap02"><header><span class="code">Cap. 02</span><h3>Anexo — Estrutura, Alvenarias e Cobertura</h3><span class="ct">4 822,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr id="a-2-1"><td class="art">2.1</td><td><strong>Fornecimento e Execução de Parede em Alvenaria de Tijolo</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução de paredes do anexo em alvenaria de tijolo de 11 cm, incluindo argamassas de assentamento e respetiva mão de obra.</p></td>
+<td class="c">M2</td><td class="n">23</td><td class="n">66,30 €</td><td class="n b">1 525,00 €</td></tr><tr id="a-2-2"><td class="art">2.2</td><td><strong>Fornecimento e Execução de Reboco nas Paredes do Anexo</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução de reboco nas paredes do anexo, incluindo preparação das superfícies e respetiva mão de obra.</p></td>
+<td class="c">M2</td><td class="n">32</td><td class="n">33,00 €</td><td class="n b">1 056,00 €</td></tr><tr id="a-2-3"><td class="art">2.3</td><td><strong>Fornecimento e Execução de Laje em Vigas e Abobadilhas</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução da laje do anexo, constituída por vigas pré-esforçadas em betão e abobadilhas, com rede de aço na camada de compressão em betão, incluindo cofragem, escoramento e respetiva mão de obra.</p></td>
+<td class="c">M2</td><td class="n">13</td><td class="n">99,62 €</td><td class="n b">1 295,00 €</td></tr><tr id="a-2-4"><td class="art">2.4</td><td><strong>Fornecimento e Execução de Impermeabilização da Laje</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à impermeabilização da laje do anexo, incluindo sistema de drenagem das águas e respetiva mão de obra.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">946,00 €</td><td class="n b">946,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 02</td><td class="n b">4 822,00 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap03"><header><span class="code">Cap. 03</span><h3>Pavimentos Exteriores e Drenagem</h3><span class="ct">5 371,90 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr id="a-3-1"><td class="art">3.1</td><td><strong>Fornecimento e Execução de Canalização de Águas Pluviais</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução da rede de escoamento de águas pluviais, incluindo tubagens, acessórios, ligações e respetiva mão de obra.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">696,00 €</td><td class="n b">696,00 €</td></tr><tr id="a-3-2"><td class="art">3.2</td><td><strong>Fornecimento e Execução de Piso em Betão Armado com Malha de Aço</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução de piso em betão com malha de aço de reforço, incluindo espalhamento, nivelamento e respetiva mão de obra.</p></td>
+<td class="c">M2</td><td class="n">43,7</td><td class="n">35,00 €</td><td class="n b">1 529,50 €</td></tr><tr id="a-3-3"><td class="art">3.3</td><td><strong>Fornecimento e Execução de Betonilha de Regularização</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à execução de betonilha de regularização do piso, com as pendentes necessárias ao escoamento das águas, incluindo respetiva mão de obra.</p></td>
+<td class="c">M2</td><td class="n">43,7</td><td class="n">32,00 €</td><td class="n b">1 398,40 €</td></tr><tr id="a-3-4"><td class="art">3.4</td><td><strong>Assentamento de Pavimento Cerâmico Exterior</strong><p>Execução de mão de obra para assentamento de pavimento cerâmico na área exterior existente. A nossa empresa fornece exclusivamente o cimento-cola e o betume para juntas; o pavimento cerâmico é fornecido pelo cliente.</p></td>
+<td class="c">M2</td><td class="n">43,7</td><td class="n">40,00 €</td><td class="n b">1 748,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 03</td><td class="n b">5 371,90 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap04"><header><span class="code">Cap. 04</span><h3>Instalação Elétrica</h3><span class="ct">1 355,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr id="a-4-1"><td class="art">4.1</td><td><strong>Fornecimento e Execução de Instalação Elétrica</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à instalação elétrica, incluindo tubagem, cablagem, caixas, tomadas, interruptores, pontos de luz, ligações e respetiva mão de obra, de acordo com as Regras Técnicas das Instalações Elétricas de Baixa Tensão (RTIEBT).</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">1 355,00 €</td><td class="n b">1 355,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 04</td><td class="n b">1 355,00 €</td></tr></tfoot></table></div></section>
+<section class="cap" id="cap05"><header><span class="code">Cap. 05</span><h3>Pinturas e Acabamentos</h3><span class="ct">810,00 €</span></header>
+<div class="tw"><table class="items"><thead><tr><th>Art.º</th><th>Designação dos trabalhos</th><th class="c">Un.</th><th class="n">Quant.</th><th class="n">Pr. unit.</th><th class="n">Total</th></tr></thead>
+<tbody><tr id="a-5-1"><td class="art">5.1</td><td><strong>Fornecimento e Execução de Pintura do Muro e do Anexo</strong><p>Fornecimento, por parte da nossa empresa, de todos os materiais necessários à pintura do muro e do anexo, incluindo preparação das superfícies, primário e demãos de tinta para exterior, e respetiva mão de obra.</p></td>
+<td class="c">Vg</td><td class="n">1</td><td class="n">810,00 €</td><td class="n b">810,00 €</td></tr></tbody><tfoot><tr><td></td><td colspan="4">Total do capítulo 05</td><td class="n b">810,00 €</td></tr></tfoot></table></div></section>
+  <div class="totals">
+    <div><span>Subtotal (sem IVA)</span><span>15 416,70 €</span></div>
+    <div><span>IVA (23%)</span><span>3 545,84 €</span></div>
+    <div class="grand"><span>TOTAL COM IVA</span><span>18 962,54 €</span></div>
+  </div>
+  <p class="note" style="text-align:right">Quantidades aproximadas, sujeitas a confirmação em obra.</p>
+</div></section>
+
+<section class="block alt" id="resumo"><div class="wrap">
+  <div class="shead"><span class="eyebrow">03 · Resumo e pagamento</span><h2>Investimento por capítulo e plano de pagamentos</h2></div>
+  <div class="two">
+    <div class="card"><h3>Valores por capítulo</h3><div class="bar"><span class="code">Cap. 01</span><span class="bn">Muros e Vedações</span>
+<span class="track"><i style="width:19.8%"></i></span><span class="pct">19.8%</span><span class="v">3 057,80 €</span></div><div class="bar"><span class="code">Cap. 02</span><span class="bn">Anexo — Estrutura, Alvenarias e Cobertura</span>
+<span class="track"><i style="width:31.3%"></i></span><span class="pct">31.3%</span><span class="v">4 822,00 €</span></div><div class="bar"><span class="code">Cap. 03</span><span class="bn">Pavimentos Exteriores e Drenagem</span>
+<span class="track"><i style="width:34.8%"></i></span><span class="pct">34.8%</span><span class="v">5 371,90 €</span></div><div class="bar"><span class="code">Cap. 04</span><span class="bn">Instalação Elétrica</span>
+<span class="track"><i style="width:8.8%"></i></span><span class="pct">8.8%</span><span class="v">1 355,00 €</span></div><div class="bar"><span class="code">Cap. 05</span><span class="bn">Pinturas e Acabamentos</span>
+<span class="track"><i style="width:5.3%"></i></span><span class="pct">5.3%</span><span class="v">810,00 €</span></div>
+      <div class="totals" style="max-width:none"><div><span>Subtotal</span><span>15 416,70 €</span></div><div><span>IVA 23%</span><span>3 545,84 €</span></div><div class="grand"><span>TOTAL</span><span>18 962,54 €</span></div></div>
+    </div>
+    <div class="card"><h3>Plano de pagamentos</h3>
+      <div style="overflow-x:auto"><table class="paytab"><thead><tr><th>Fase</th><th>Momento</th><th class="n">%</th><th class="n">S/ IVA</th><th class="n">IVA 23%</th><th class="n">C/ IVA</th></tr></thead><tbody><tr><td class="art">1.ª</td><td>Adjudicação da obra</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n">1 063,75 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">2.ª</td><td>Antes da execução da laje</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n">1 063,75 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">3.ª</td><td>Antes da execução da instalação elétrica</td><td class="n">30%</td><td class="n">4 625,01 €</td><td class="n">1 063,75 €</td><td class="n b">5 688,76 €</td></tr><tr><td class="art">4.ª</td><td>Conclusão e entrega da obra</td><td class="n">10%</td><td class="n">1 541,67 €</td><td class="n">354,59 €</td><td class="n b">1 896,26 €</td></tr><tr class="ptot"><td></td><td>Total</td><td class="n">100%</td><td class="n">15 416,70 €</td><td class="n">3 545,84 €</td><td class="n b">18 962,54 €</td></tr></tbody></table></div>
+      <div class="bank">
+        <div><span>Titular</span><strong>Parâmetro Imaginário Unipessoal Lda</strong></div>
+        <div><span>NIF</span><strong>518526739</strong></div>
+        <div><span>IBAN</span><strong>PT50 0018 0003 6478 1792 0205 4</strong></div>
+      </div>
+      <ul class="bullets">
+        <li>Valores em euros. Ao valor dos trabalhos acresce IVA à taxa legal em vigor (23%).</li>
+        <li>Quantidades aproximadas, a confirmar em obra; eventuais acertos são faturados aos preços unitários indicados.</li>
+        <li>Qualquer trabalho não descrito é orçamentado à parte, mediante acordo prévio com o cliente.</li>
+        <li>Proposta válida por 30 dias a contar de 20.11.2026.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="cronograma"><div class="wrap">
+  <div class="shead"><span class="eyebrow">04 · Cronograma</span><h2>Sequência dos trabalhos</h2>
+  <p>Planeamento previsional em dias úteis, com as prestações ligadas ao avanço da obra. A data de início é definida na adjudicação.</p></div>
+  <div class="card gantt"><div class="gin">
+    <div class="g-head"><span>Art.</span><span>Tarefa</span><span>Dias</span><div class="g-weeks"><span>Sem. 1</span><span>Sem. 2</span><span>Sem. 3</span><span>Sem. 4</span></div></div>
+    <div class="g-row ms"><span class="g-art">◆</span><span class="g-name">1.ª prestação · 30% · Adjudicação da obra</span><span class="g-d">dia 1</span><span class="g-track"><b style="left:calc(2.50% - 7px)"></b></span></div>
+<div class="g-ph"><span class="code">Cap. 01</span>Muros e Vedações</div>
+<div class="g-row"><span class="g-art">1.1</span><span class="g-name">Muro em bloco de betão, pilares, viga e reboco</span><span class="g-d">1–5</span><span class="g-track"><i style="left:0.00%;width:25.00%"></i></span></div>
+<div class="g-row"><span class="g-art">1.2</span><span class="g-name">Fechamento do muro existente com painel sandwich</span><span class="g-d">6–7</span><span class="g-track"><i style="left:25.00%;width:10.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 02</span>Anexo — Estrutura, Alvenarias e Cobertura</div>
+<div class="g-row"><span class="g-art">2.1</span><span class="g-name">Paredes do anexo em alvenaria de tijolo</span><span class="g-d">2–4</span><span class="g-track"><i style="left:5.00%;width:15.00%"></i></span></div>
+<div class="g-row"><span class="g-art">2.2</span><span class="g-name">Reboco das paredes do anexo</span><span class="g-d">5–6</span><span class="g-track"><i style="left:20.00%;width:10.00%"></i></span></div>
+<div class="g-row ms"><span class="g-art">◆</span><span class="g-name">2.ª prestação · 30% · Antes da execução da laje</span><span class="g-d">dia 7</span><span class="g-track"><b style="left:calc(32.50% - 7px)"></b></span></div>
+<div class="g-row"><span class="g-art">2.3</span><span class="g-name">Laje em vigas e abobadilhas</span><span class="g-d">7–9</span><span class="g-track"><i style="left:30.00%;width:15.00%"></i></span></div>
+<div class="g-row"><span class="g-art">2.4</span><span class="g-name">Impermeabilização da laje (após cura)</span><span class="g-d">13–14</span><span class="g-track"><i style="left:60.00%;width:10.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 03</span>Pavimentos Exteriores e Drenagem</div>
+<div class="g-row"><span class="g-art">3.1</span><span class="g-name">Rede de águas pluviais</span><span class="g-d">8–9</span><span class="g-track"><i style="left:35.00%;width:10.00%"></i></span></div>
+<div class="g-row"><span class="g-art">3.2</span><span class="g-name">Piso em betão com malha de aço</span><span class="g-d">10–11</span><span class="g-track"><i style="left:45.00%;width:10.00%"></i></span></div>
+<div class="g-row"><span class="g-art">3.3</span><span class="g-name">Betonilha de regularização (após cura)</span><span class="g-d">14–15</span><span class="g-track"><i style="left:65.00%;width:10.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 04</span>Instalação Elétrica</div>
+<div class="g-row ms"><span class="g-art">◆</span><span class="g-name">3.ª prestação · 30% · Antes da execução da instalação elétrica</span><span class="g-d">dia 12</span><span class="g-track"><b style="left:calc(57.50% - 7px)"></b></span></div>
+<div class="g-row"><span class="g-art">4.1</span><span class="g-name">Instalação elétrica</span><span class="g-d">12–14</span><span class="g-track"><i style="left:55.00%;width:15.00%"></i></span></div>
+<div class="g-row"><span class="g-art">3.4</span><span class="g-name">Assentamento do pavimento cerâmico exterior</span><span class="g-d">16–18</span><span class="g-track"><i style="left:75.00%;width:15.00%"></i></span></div>
+<div class="g-ph"><span class="code">Cap. 05</span>Pinturas e Acabamentos</div>
+<div class="g-row"><span class="g-art">5.1</span><span class="g-name">Pintura do muro e do anexo</span><span class="g-d">17–19</span><span class="g-track"><i style="left:80.00%;width:15.00%"></i></span></div>
+<div class="g-row"><span class="g-art">—</span><span class="g-name">Limpeza geral, vistoria final e correções</span><span class="g-d">20–20</span><span class="g-track"><i style="left:95.00%;width:5.00%"></i></span></div>
+<div class="g-row ms"><span class="g-art">◆</span><span class="g-name">4.ª prestação · 10% · Conclusão e entrega da obra</span><span class="g-d">dia 20</span><span class="g-track"><b style="left:calc(97.50% - 7px)"></b></span></div>
+  </div></div>
+  <div class="gsum"><div><span class="eyebrow">Prazo total previsto</span><br><strong>4 semanas</strong> <span style="color:var(--muted)">20 dias úteis</span></div>
+  <p class="note" style="max-width:60ch;margin:0">Os prazos não contam feriados e podem ser ajustados com a entrega dos materiais escolhidos pelo cliente, com trabalhos a mais ou com regras do condomínio.</p></div>
+</div></section>
+
+<section class="block alt" id="caderno"><div class="wrap">
+  <div class="shead"><span class="eyebrow">05 · Caderno de encargos</span><h2>Condições técnicas e contratuais</h2></div>
+  <div class="card objeto"><span class="eyebrow">2 · Objeto</span><p style="margin-top:8px">O presente Caderno de Encargos define as condições técnicas e contratuais a que obedece a execução da empreitada de construção de muro em bloco de betão, fechamento de muro existente em painel sandwich, construção de anexo em alvenaria de tijolo com laje aligeirada e impermeabilização, execução de pavimento exterior em betão, betonilha e cerâmico com rede de águas pluviais, instalação elétrica e pintura do muro e do anexo, conforme descrito no Orçamento.</p></div>
+  <div class="two" style="margin-top:20px">
+    <div class="card" style="padding:20px"><h3>3 · Condições gerais</h3><ul class="terms"><li><span class='art'>3.1</span><p>Os trabalhos serão executados de acordo com as boas regras da arte, as normas técnicas e regulamentos em vigor e as indicações dos fabricantes dos materiais aplicados.</p></li><li><span class='art'>3.2</span><p>Todos os materiais a aplicar serão novos, de primeira qualidade e adequados ao fim a que se destinam. Qualquer substituição de materiais será previamente acordada com o Dono de Obra.</p></li><li><span class='art'>3.3</span><p>O Empreiteiro cumprirá as regras de segurança e saúde no trabalho (Decreto-Lei n.º 273/2003), garantindo a utilização de equipamentos de proteção individual e coletiva adequados a cada tarefa.</p></li><li><span class='art'>3.4</span><p>Os resíduos resultantes dos trabalhos serão recolhidos, transportados e encaminhados para contentor ou vazadouro devidamente autorizado.</p></li><li><span class='art'>3.5</span><p>O Empreiteiro manterá a obra limpa e arrumada durante a execução e procederá à limpeza geral no final dos trabalhos.</p></li><li><span class='art'>3.6</span><p>Quaisquer trabalhos a mais ou alterações ao previsto no Orçamento serão orçamentados à parte e só executados após aprovação prévia do Dono de Obra.</p></li><li><span class='art'>3.7</span><p>Compete ao Dono de Obra obter eventuais licenças ou comunicações prévias junto da Câmara Municipal e autorização do condomínio, salvo acordo em contrário.</p></li><li><span class='art'>3.8</span><p>Os trabalhos executados beneficiam das garantias previstas na legislação em vigor, não abrangendo danos resultantes de má utilização ou falta de manutenção.</p></li></ul></div>
+    <div>
+      <h3 style="font-size:16px;font-weight:800;margin:4px 0 12px">4 · Especificações técnicas</h3>
+      <details open><summary><span class='code'>Cap. 01</span>Muros e Vedações<span class='cnt'>2 artigos</span></summary><ul class='spec'><li><span class='art'>1.1</span><div><strong>Fornecimento e Execução de Muro em Bloco de Betão</strong><p>Muro em blocos de betão de 50 × 20 × 20 cm assentes com argamassa, com 2 pilares de 20 × 20 cm e viga de coroamento de 20 cm de largura em betão armado, ao longo de 9 metros lineares. Reboco em ambas as faces, desempenado e pronto a pintar.</p></div><span class='un'>M2</span></li><li><span class='art'>1.2</span><div><strong>Fechamento sobre Muro Existente com Painel Sandwich</strong><p>Fechamento da parte superior do muro existente em painel sandwich de aço galvanizado com 50 mm de espessura, fixado a estrutura de suporte, com remates e vedação das juntas.</p></div><span class='un'>M2</span></li></ul></details><details><summary><span class='code'>Cap. 02</span>Anexo — Estrutura, Alvenarias e Cobertura<span class='cnt'>4 artigos</span></summary><ul class='spec'><li><span class='art'>2.1</span><div><strong>Fornecimento e Execução de Parede em Alvenaria de Tijolo</strong><p>Paredes do anexo em alvenaria de tijolo de 11 cm, assente com argamassa de cimento, com execução de vãos conforme indicação do Dono de Obra.</p></div><span class='un'>M2</span></li><li><span class='art'>2.2</span><div><strong>Fornecimento e Execução de Reboco nas Paredes do Anexo</strong><p>Reboco das paredes do anexo com argamassa de cimento, aplicado em chapisco e camada de regularização, desempenado e preparado para pintura.</p></div><span class='un'>M2</span></li><li><span class='art'>2.3</span><div><strong>Fornecimento e Execução de Laje em Vigas e Abobadilhas</strong><p>Laje aligeirada em vigas pré-esforçadas e abobadilhas, com camada de compressão em betão e rede de aço electrossoldada, incluindo cofragem, escoramento e cura do betão.</p></div><span class='un'>M2</span></li><li><span class='art'>2.4</span><div><strong>Fornecimento e Execução de Impermeabilização da Laje</strong><p>Impermeabilização da laje com sistema adequado a cobertura, incluindo remates nas platibandas e sistema de drenagem das águas.</p></div><span class='un'>Vg</span></li></ul></details><details><summary><span class='code'>Cap. 03</span>Pavimentos Exteriores e Drenagem<span class='cnt'>4 artigos</span></summary><ul class='spec'><li><span class='art'>3.1</span><div><strong>Fornecimento e Execução de Canalização de Águas Pluviais</strong><p>Rede de águas pluviais em tubagem de PVC, com caixas, ralos e ligações ao ponto de descarga existente, com as pendentes regulamentares.</p></div><span class='un'>Vg</span></li><li><span class='art'>3.2</span><div><strong>Fornecimento e Execução de Piso em Betão Armado com Malha de Aço</strong><p>Piso em betão armado com malha de aço electrossoldada, sobre base regularizada e compactada, espalhado, vibrado e nivelado.</p></div><span class='un'>M2</span></li><li><span class='art'>3.3</span><div><strong>Fornecimento e Execução de Betonilha de Regularização</strong><p>Betonilha de regularização sobre o piso em betão, com pendentes para escoamento das águas, preparada para receber o pavimento cerâmico.</p></div><span class='un'>M2</span></li><li><span class='art'>3.4</span><div><strong>Assentamento de Pavimento Cerâmico Exterior</strong><p>Assentamento de pavimento cerâmico exterior com cimento-cola e betumação das juntas, fornecidos pela empresa. Pavimento cerâmico fornecido pelo cliente.</p></div><span class='un'>M2</span></li></ul></details><details><summary><span class='code'>Cap. 04</span>Instalação Elétrica<span class='cnt'>1 artigos</span></summary><ul class='spec'><li><span class='art'>4.1</span><div><strong>Fornecimento e Execução de Instalação Elétrica</strong><p>Instalação elétrica do anexo e zona exterior, com tubagem, cablagem, caixas de derivação, tomadas, interruptores e pontos de luz, de acordo com as RTIEBT.</p></div><span class='un'>Vg</span></li></ul></details><details><summary><span class='code'>Cap. 05</span>Pinturas e Acabamentos<span class='cnt'>1 artigos</span></summary><ul class='spec'><li><span class='art'>5.1</span><div><strong>Fornecimento e Execução de Pintura do Muro e do Anexo</strong><p>Pintura do muro e do anexo com tinta para exterior, incluindo limpeza e preparação das superfícies, primário e duas demãos de acabamento.</p></div><span class='un'>Vg</span></li></ul></details>
+      <div class="card" style="padding:20px;margin-top:20px"><h3>5 · Exclusões</h3><ul class="terms"><li><span class='art'>5.1</span><p>Projetos de arquitetura ou especialidades, licenças, comunicações prévias e taxas municipais.</p></li><li><span class='art'>5.2</span><p>Fornecimento do pavimento cerâmico exterior (art. 3.4); a empresa fornece apenas o cimento-cola e o betume.</p></li><li><span class='art'>5.3</span><p>Fornecimento de luminárias e equipamentos, salvo indicação em contrário no Orçamento.</p></li><li><span class='art'>5.4</span><p>Quaisquer trabalhos não descritos no Orçamento.</p></li></ul>
+      <p class="note">Os trabalhos não incluídos, bem como alterações ou trabalhos a mais, são orçamentados à parte e só executados após aprovação prévia do Dono de Obra.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="block" id="aceitacao"><div class="wrap">
+  <div class="shead"><span class="eyebrow">06 · Aceitação e adjudicação</span><h2>Declaração do cliente</h2></div>
+  <div class="card accept">
+    <p>O valor global da empreitada é de <strong>15 416,70 €</strong> (sem IVA), acrescido de IVA à taxa de 23% (3 545,84 €), totalizando <strong>18 962,54 €</strong>. Os pagamentos são feitos por transferência bancária, conforme o plano de pagamentos.</p>
+    <p>Ao assinar o presente documento, o Cliente declara que:</p>
+    <ul class="checks"><li>Tomou conhecimento e compreendeu todos os trabalhos descritos no Orçamento e no Caderno de Encargos, incluindo os materiais, as quantidades e a forma como serão executados;</li><li>Tem conhecimento do estado atual do local e dos trabalhos que serão realizados;</li><li>Aceita os valores, o plano de pagamentos e as condições aqui definidas;</li><li>Tem conhecimento de que os trabalhos não incluídos (ponto 5 – Exclusões do Caderno de Encargos), bem como quaisquer alterações ou trabalhos a mais, serão orçamentados à parte e só executados após a sua aprovação prévia.</li></ul>
+    <div class="callout">A assinatura de ambas as partes constitui a adjudicação da obra nos termos aqui descritos.</div>
+    <div class="sign">
+      <div><span class="who">O cliente</span><span class="line"></span><strong>Sra. Marina</strong><small>Data: ____ / ____ / ________</small></div>
+      <div><span class="who">O empreiteiro</span><span class="line"></span><strong>Parâmetro Imaginário Unipessoal Lda</strong><small>Data: ____ / ____ / ________</small></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><strong>Parâmetro Imaginário Unipessoal Lda</strong><span>NIF 518526739</span><span>Rua da Piedade, Algés, Oeiras</span></div>
+  <div><strong>Contactos</strong><span>964 286 286 · 927 147 574</span><span>geral@parametroimaginario.com</span></div>
+  <div><strong>Online</strong><span>www.parametroimaginario.pt</span><span>@parametroimaginario</span></div>
+  <div><strong>Obrigado pela sua preferência.</strong><span>Proposta PI-2026-002 · válida 30 dias</span></div>
+</div></footer>
+<button class="totop" id="totop" aria-label="Voltar ao início" hidden>↑</button>
+
+<script>
+(function(){
+  const links=[...document.querySelectorAll('nav.toc a')], map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+  const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.removeAttribute('aria-current'));
+    const a=map.get(e.target.id); if(a){ a.setAttribute('aria-current','true'); const w=a.parentElement; w.scrollLeft=a.offsetLeft-(w.clientWidth-a.offsetWidth)/2; } } }); },{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section.block').forEach(s=>io.observe(s));
+  const prog=document.getElementById('prog'), top=document.getElementById('totop');
+  function onScroll(){ const h=document.documentElement, max=h.scrollHeight-h.clientHeight; prog.style.width=(max>0?h.scrollTop/max*100:0)+'%'; top.hidden=h.scrollTop<800; }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  top.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+})();
+</script>
+
+
+</body>
+</html>
