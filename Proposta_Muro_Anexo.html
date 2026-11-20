@@ -50,7 +50,12 @@ p{margin:0}
 .hs-h{font:500 10px var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted)}
 .hs-r span:first-child{color:#fff;font-size:14px}.hs-r span:first-child b{font:500 11px var(--font-m);color:var(--on-navy-muted);margin-right:8px;font-weight:500}
 .hs-r span:last-child,.hs-t span:last-child{font:500 14px var(--font-m);color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
-.hs-t{border:0;font-weight:800;color:#fff}.hs-t span:last-child{font-size:17px;font-weight:700}
+.hs-t{border:0;font-weight:800;color:#fff}
+.hs-h .siva{font:700 16px var(--font-d);letter-spacing:.04em;color:#fff;background:var(--accent);padding:5px 12px;border-radius:999px;text-transform:none}
+.hs-h{align-items:center}
+.hs-iva{border-top:1px solid rgba(255,255,255,.18)}
+.hs-iva span:first-child{color:var(--on-navy-muted)!important}
+.hs-tot{background:rgba(255,255,255,.08);margin:6px -20px 0;padding:14px 20px;border-radius:0 0 16px 16px}.hs-t span:last-child{font-size:17px;font-weight:700}
 .hero-img{margin:0;background:#EEF0F3;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.12)}
 .hero-img img{display:block;width:100%;height:auto}
 .hero-img figcaption{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;background:rgba(7,16,30,.92);color:var(--on-navy-muted);font:500 11px var(--font-m);letter-spacing:.08em;text-transform:uppercase}
@@ -63,8 +68,8 @@ p{margin:0}
 .meta div{background:var(--navy);padding:14px 16px;display:grid;gap:4px}
 .meta span{font:500 10px/1 var(--font-m);letter-spacing:.12em;text-transform:uppercase;color:var(--on-navy-muted)}
 .meta strong{font-size:17px;color:var(--on-navy)}
-.meta{grid-template-columns:1.6fr repeat(4,minmax(150px,1fr))}
-@media (max-width:900px){.meta{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}}
+.meta{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.meta{grid-template-columns:1fr}}
 .meta .big strong{font-size:clamp(30px,4vw,40px);letter-spacing:-.01em}
 .cover-strip{height:6px;background:var(--accent)}
 
@@ -272,16 +277,14 @@ footer span{font-size:13px;display:block;word-break:break-word}
       <div>
         <div class="eyebrow" style="color:var(--on-navy-muted)">Proposta n.º PI-2026-002 · 20.11.2026</div>
         <h1>Proposta de Orçamento</h1>
-        <p class="lead">Construção de muro em bloco de betão, anexo em alvenaria com laje impermeabilizada e novo pavimento exterior, preparada para a Sra. Marina · [Localidade].</p>
+        <p class="lead">Construção de muro em bloco de betão, anexo em alvenaria com laje impermeabilizada e novo pavimento exterior, preparada para a Sra. Marina · São Domingos de Rana.</p>
       </div>
-      <div class="hero-sum"><div class="hs-h"><span>Resumo por capítulo</span><span>s/ IVA</span></div><div class="hs-r"><span><b>01</b>Muros e Vedações</span><span>3 057,80 €</span></div><div class="hs-r"><span><b>02</b>Anexo — Estrutura, Alvenarias e Cobertura</span><span>4 822,00 €</span></div><div class="hs-r"><span><b>03</b>Pavimentos Exteriores e Drenagem</span><span>5 371,90 €</span></div><div class="hs-r"><span><b>04</b>Instalação Elétrica</span><span>1 355,00 €</span></div><div class="hs-r"><span><b>05</b>Pinturas e Acabamentos</span><span>810,00 €</span></div><div class="hs-t"><span>Total dos trabalhos</span><span>15 416,70 €</span></div></div>
+      <div class="hero-sum"><div class="hs-h"><span>Resumo por capítulo</span><span class="siva">S/ IVA</span></div><div class="hs-r"><span><b>01</b>Muros e Vedações</span><span>3 057,80 €</span></div><div class="hs-r"><span><b>02</b>Anexo — Estrutura, Alvenarias e Cobertura</span><span>4 822,00 €</span></div><div class="hs-r"><span><b>03</b>Pavimentos Exteriores e Drenagem</span><span>5 371,90 €</span></div><div class="hs-r"><span><b>04</b>Instalação Elétrica</span><span>1 355,00 €</span></div><div class="hs-r"><span><b>05</b>Pinturas e Acabamentos</span><span>810,00 €</span></div><div class="hs-t"><span>Total dos trabalhos</span><span>15 416,70 €</span></div><div class="hs-r hs-iva"><span>IVA 23%</span><span>3 545,84 €</span></div><div class="hs-t hs-tot"><span>Total com IVA</span><span>18 962,54 €</span></div></div>
     </div>
     <div class="meta">
-      <div class="big"><span>Valor dos trabalhos · sem IVA</span><strong>15 416,70 €</strong></div>
-      <div><span>Total com IVA 23%</span><strong>18 962,54 €</strong></div>
       <div><span>Prazo previsto</span><strong>4 semanas · 20 dias úteis</strong></div>
       <div><span>Pavimento exterior</span><strong>43,70 m²</strong></div>
-      <div><span>Validade</span><strong>30 dias</strong></div>
+      <div><span>Início da obra</span><strong>Janeiro de 2027</strong></div>
     </div>
   </div>
   <div class="cover-strip"></div>
